@@ -1,2 +1,5 @@
 venv/*
 .idea/*
+.flaskenv
+config.py
+credentials.json

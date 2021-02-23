@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* styles applied for all window widths */
+
+html{
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    width: 100%;
+    height: 100%;
+}
+.collectionStats{
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+}
+.openArtifact{
+    width: 1rem;
+    height: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: green;
+}
+.closedArtifact{
+    width: 1rem;
+    height: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: red;
+}

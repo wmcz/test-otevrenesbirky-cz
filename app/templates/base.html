@@ -1,0 +1,31 @@
+<html lang="cs">
+<head>
+    <title>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)" href="{{ url_for('static', filename='style/from480.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" href="{{ url_for('static', filename='style/from600.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)" href="{{ url_for('static', filename='style/from840.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)" href="{{ url_for('static', filename='style/from960.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)" href="{{ url_for('static', filename='style/from1280.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)" href="{{ url_for('static', filename='style/from1440.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)" href="{{ url_for('static', filename='style/from1600.css') }}?v=1">
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=1" defer></script>
+
+</head>
+<body>
+    <h1>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</h1>
+    <div id="collectionStats" class="collectionStats">
+
+    </div>
+    <ul>
+    {% for collection in records %}
+        <li>{{ collection }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
