@@ -25,9 +25,10 @@
 
 </head>
 <body>
+<!--
 <h1>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</h1>
-<div id="display"></div>
-<select id="collectionSelect" onchange="countCollectionData()">
+-->
+<select id="collectionSelect" onchange="countCollectionData()" class="collectionSelect">
     {% for collection in records %}
     <option value="{{ collection[4] }},{{ collection[5] }}">{{ collection[0] }}</a></option>
     {% endfor %}
@@ -35,11 +36,12 @@
 <div id="collectionStats" class="collectionStats">
 </div>
 
-
+<!--
 <ul>
     {% for collection in records %}
     <li>{{ collection[0] }},{{ collection[4] }},{{ collection[5] }}</a></li>
     {% endfor %}
 </ul>
+-->
 </body>
 </html>
