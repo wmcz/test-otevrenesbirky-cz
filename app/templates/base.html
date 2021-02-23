@@ -5,27 +5,41 @@
 
     <!-- CSS -->
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=1">
-    <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)" href="{{ url_for('static', filename='style/from480.css') }}?v=1">
-    <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" href="{{ url_for('static', filename='style/from600.css') }}?v=1">
-    <link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)" href="{{ url_for('static', filename='style/from840.css') }}?v=1">
-    <link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)" href="{{ url_for('static', filename='style/from960.css') }}?v=1">
-    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)" href="{{ url_for('static', filename='style/from1280.css') }}?v=1">
-    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)" href="{{ url_for('static', filename='style/from1440.css') }}?v=1">
-    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)" href="{{ url_for('static', filename='style/from1600.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)"
+          href="{{ url_for('static', filename='style/from480.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)"
+          href="{{ url_for('static', filename='style/from600.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)"
+          href="{{ url_for('static', filename='style/from840.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)"
+          href="{{ url_for('static', filename='style/from960.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)"
+          href="{{ url_for('static', filename='style/from1280.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)"
+          href="{{ url_for('static', filename='style/from1440.css') }}?v=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)"
+          href="{{ url_for('static', filename='style/from1600.css') }}?v=1">
 
     <!-- JS -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}?v=1" defer></script>
 
 </head>
 <body>
-    <h1>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</h1>
-    <div id="collectionStats" class="collectionStats">
-
-    </div>
-    <ul>
+<h1>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</h1>
+<div id="display"></div>
+<select id="collectionSelect" onchange="countCollectionData()">
     {% for collection in records %}
-        <li>{{ collection }}</a></li>
+    <option value="{{ collection[4] }},{{ collection[5] }}">{{ collection[0] }}</a></option>
     {% endfor %}
-    </ul>
+</select>
+<div id="collectionStats" class="collectionStats">
+</div>
+
+
+<ul>
+    {% for collection in records %}
+    <li>{{ collection[0] }},{{ collection[4] }},{{ collection[5] }}</a></li>
+    {% endfor %}
+</ul>
 </body>
 </html>

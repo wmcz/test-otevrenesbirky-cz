@@ -14,16 +14,16 @@ html{
     flex-wrap:wrap;
 }
 .openArtifact{
-    width: 1rem;
-    height: 1rem;
-    margin: 1rem;
-    border-radius: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.25rem;
+    border-radius: 0.5rem;
     background-color: green;
 }
 .closedArtifact{
-    width: 1rem;
-    height: 1rem;
-    margin: 1rem;
-    border-radius: 1rem;
-    background-color: red;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.25rem;
+    border-radius: 0.5rem;
+    background-color: lightgray;
 }
