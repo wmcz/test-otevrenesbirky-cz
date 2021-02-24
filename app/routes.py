@@ -6,7 +6,7 @@ import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json",
+credential = ServiceAccountCredentials.from_json_keyfile_name("gcpKey.json",
                                                               ["https://spreadsheets.google.com/feeds",
                                                                "https://www.googleapis.com/auth/spreadsheets",
                                                                "https://www.googleapis.com/auth/drive.file",
