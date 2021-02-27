@@ -21,27 +21,50 @@
           href="{{ url_for('static', filename='style/from1600.css') }}?v=1">
 
     <!-- JS -->
+    <script>
+      const collectionData = {{ collectionDataJson|tojson }};
+    </script>
+    <script nomodule src="js/countUp.umd.js"></script>
+    <script nomodule src="js/main-for-legacy.js"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}?v=1" defer></script>
+
 
 </head>
 <body>
-<!--
-<h1>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</h1>
--->
-<select id="collectionSelect" onchange="countCollectionData()" class="collectionSelect">
-    {% for collection in records %}
-    <option value="{{ collection[4] }},{{ collection[5] }}">{{ collection[0] }}</a></option>
-    {% endfor %}
-</select>
-<div id="collectionStats" class="collectionStats">
+
+<header style="visibility: hidden">
+    <h1>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</h1>
+    <select id="collectionSelect" onchange="countCollectionData()" class="collectionSelect">
+        {% for collection in records %}
+        <option value="{{ collection[4] }},{{ collection[5] }}">{{ collection[0] }}</a></option>
+        {% endfor %}
+    </select>
+</header>
+
+<section class="introScreens">
+    <article class="introScreen" id="introScreen1">
+        <h2>400 muzeí</h2>
+        <p>sbírkových předmětů, uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází v muzeích a galeriích ČR</p>
+    </article>
+    <article class="introScreen" id="introScreen2">
+        <h2>19 090 939</h2>
+        <p>sbírkových předmětů, uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází v muzeích a galeriích ČR</p>
+    </article>
+    <article class="introScreen" id="introScreen3">
+        <h2>556 709</h2>
+        <p>sbírkových předmětů si můžete prohlédnout online.  Tedy přibližně 3% z celkového počtu</p>
+        <p>A jak se seznámíte s těmi ostatními?</p>
+    </article>
+    <article class="introScreen" id="introScreen4">
+        <h2>neseznámíte</h2>
+        <p>Zbývajících 18451672 předmětů je až na výjimky uschováno v nedostupných depozitářích</p>
+    </article>
+</section>
+
+<div class="collectionStatsCanvas" id="collectionStatsCanvas">
+    <div class="collectionStatsCover" id="collectionStatsCover"></div>
+    <div id="collectionStats" class="collectionStats hideSize"></div>
 </div>
 
-<!--
-<ul>
-    {% for collection in records %}
-    <li>{{ collection[0] }},{{ collection[4] }},{{ collection[5] }}</a></li>
-    {% endfor %}
-</ul>
--->
 </body>
 </html>

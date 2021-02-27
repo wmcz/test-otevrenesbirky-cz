@@ -14,11 +14,16 @@ credential = ServiceAccountCredentials.from_json_keyfile_name("gcpKey.json",
 
 
 @app.route('/')
-def hello_world():
+def index():
     client = gspread.authorize(credential)
     gsheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1rMSSY3so30Y5RDnS_B6kKDP25-9rIBYD-P-bl_rVJ2I')
     worksheet = gsheet.get_worksheet(0)
-    records = worksheet.get('A2:H')
-    print(records)
+    collectionData = worksheet.get('A2:H')
+    collectionDataJson = []
+    for collection in collectionData:
+        collectionDataJson.append({'Collection Name': collection[0], 'Total Items': int(collection[4]), 'Online Items': int(collection[5])})
+    print(collectionDataJson)
+    print(type(collectionDataJson))
     return render_template('base.html',
-                           records=records)
+                           collectionData=collectionData,
+                           collectionDataJson=collectionDataJson)
