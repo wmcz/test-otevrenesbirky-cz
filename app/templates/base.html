@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=1">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=3">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)"
           href="{{ url_for('static', filename='style/from480.css') }}?v=1">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)"
@@ -19,14 +19,24 @@
           href="{{ url_for('static', filename='style/from1440.css') }}?v=1">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)"
           href="{{ url_for('static', filename='style/from1600.css') }}?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
     <script>
       const collectionData = {{ collectionDataJson|tojson }};
     </script>
-    <script nomodule src="js/countUp.umd.js"></script>
-    <script nomodule src="js/main-for-legacy.js"></script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=1" defer></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=2" defer></script>
+    <script>
+        function parallax() {
+            var s = document.getElementById("collectionStatsCanvas");
+            var yPos = 0 - window.pageYOffset / 5;
+            s.style.top = 50 + yPos + "%";
+        }
+
+        window.addEventListener("scroll", function () {
+            parallax();
+        });
+    </script>
 
 
 </head>
@@ -42,28 +52,39 @@
 </header>
 
 <section class="introScreens">
-    <article class="introScreen" id="introScreen1">
-        <h2>400 muzeí</h2>
-        <p>sbírkových předmětů, uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází v muzeích a galeriích ČR</p>
-    </article>
-    <article class="introScreen" id="introScreen2">
-        <h2>19 090 939</h2>
-        <p>sbírkových předmětů, uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází v muzeích a galeriích ČR</p>
-    </article>
-    <article class="introScreen" id="introScreen3">
-        <h2>556 709</h2>
-        <p>sbírkových předmětů si můžete prohlédnout online.  Tedy přibližně 3% z celkového počtu</p>
-        <p>A jak se seznámíte s těmi ostatními?</p>
-    </article>
-    <article class="introScreen" id="introScreen4">
-        <h2>neseznámíte</h2>
-        <p>Zbývajících 18451672 předmětů je až na výjimky uschováno v nedostupných depozitářích</p>
-    </article>
+    <div class="introScreenBox">
+        <article class="introScreen fadeIn" id="introScreen1">
+            <h1>{{museumsCount}}</h1>
+            <p class="subtitle">muzeí a galerií je zapsáno do registru sbírek Ministerstva kultury ČR</p>
+        </article>
+    </div>
+    <div class="introScreenBox">
+        <article class="introScreen" id="introScreen2">
+            <h1>19 090 939</h1>
+            <p class="subtitle">předmětů, uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází ve sbírkách těchto institucí</p>
+        </article>
+    </div>
+    <div class="introScreenBox">
+        <article class="introScreen" id="introScreen3">
+            <h1>556 709</h1>
+            <p class="subtitle">sbírkových předmětů si můžete prohlédnout online.  Tedy přibližně 3% z celkového počtu</p>
+        </article>
+    </div>
+    <div class="introScreenBox">
+        <article class="introScreen" id="introScreen4">
+            <p class="subtitle">A jak se seznámíte s těmi ostatními?</p>
+        </article>
+    </div>
+    <div class="introScreenBox">
+        <article class="introScreen" id="introScreen5">
+            <h1>neseznámíte</h1>
+            <p class="subtitle">Zbývajících 18451672 předmětů je až na výjimky uschováno v&nbsp;nedostupných depozitářích</p>
+        </article>
+    </div>
 </section>
 
 <div class="collectionStatsCanvas" id="collectionStatsCanvas">
-    <div class="collectionStatsCover" id="collectionStatsCover"></div>
-    <div id="collectionStats" class="collectionStats hideSize"></div>
+    <div id="collectionStats" class="collectionStats revealTotalCount"></div>
 </div>
 
 </body>

@@ -22,8 +22,7 @@ def index():
     collectionDataJson = []
     for collection in collectionData:
         collectionDataJson.append({'Collection Name': collection[0], 'Total Items': int(collection[4]), 'Online Items': int(collection[5])})
-    print(collectionDataJson)
-    print(type(collectionDataJson))
+    museumsCount = len(collectionDataJson);
     return render_template('base.html',
-                           collectionData=collectionData,
-                           collectionDataJson=collectionDataJson)
+                           collectionDataJson=collectionDataJson,
+                           museumsCount = museumsCount)

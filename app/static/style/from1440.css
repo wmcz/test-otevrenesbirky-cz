@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* styles applied from a window width of 1440px */
+
+h1{
+    font-size: 5.625rem;
+    margin:0 0 2.812rem 0;
+}
+h2{
+    font-size: 3.375rem;
+    margin: 0 0 1.643rem 0;
+}
+h3,
+.subtitle{
+    font-size: 1.4em;
+    margin: 0 0 2.812rem 0;
+}
