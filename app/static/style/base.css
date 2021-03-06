@@ -7,54 +7,83 @@ html{
     line-height: 1.5;
     width: 100%;
     height: 100%;
-    background: #111111;
+    background: #093028;
+    color: #ffffff;
 }
 body{
     margin: 0;
     padding: 0;
-    background: #34e89e;  /* fallback for old browsers */
-    background: linear-gradient(0deg, #093028, #237A57); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-h1, h2, h3{
-    font-family: 'Playfair Display', serif;
+h1, h2, h3, h4{
     font-weight: bold;
+    text-align: center;
 }
 h1{
     font-size: 2.25rem;
     line-height: 1.125;
     margin: 0 0 1.125rem 0;
+    font-family: 'Playfair Display', serif;
 }
 h2{
     font-size: 2.25rem;
     line-height: 1.125;
     margin: 0 0 1.125rem 0;
+    font-family: 'Playfair Display', serif;
 }
-h3,
-.subtitle{
+h3{
     margin: 0 0 1.125rem 0;
     font-size: 1.125rem;
     line-height: 1.5;
     font-family: 'Playfair Display', serif;
 }
-h4
-{
-    margin: 0;
+h4,
+.subtitle {
+    margin: 0 0 1.125rem 0;
     font-size: 1rem;
     line-height: 1.5;
-    font-weight: bold;
+    text-align: center;
 }
-header{
-    display: none;
+.buttonOutline{
+    display: block;
+    padding: 1rem;
+    border: 1px solid #ffffff;
+    opacity: 0.5;
+    width: 100%;
+    max-width: 12rem;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+.buttonOutline:hover{
+    opacity: 1;
+}
+.buttonOutline.active{
+    background: rgba(255,255,255,0.25);
 }
 
-/* Intro Screens START*/
 
+/* Main Intro */
+
+.mainIntro{
+    background: #34e89e;  /* fallback for old browsers */
+    background: linear-gradient(0deg, #093028, #237A57); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Scroll Titles */
+
+.scrollIcon{
+    position: absolute;
+    bottom:2rem;
+    left: calc(50% - 2rem);
+    transition: opacity 0.5s ease;
+}
+.scrollIcon.fadeOut{
+    opacity: 0;
+}
 .introScreens{
-    color: #ffffff;
     width: 100%;
 }
 .introScreenBox{
-    text-align: center;
     height: 100vh;
     display: flex;
     align-content: center;
@@ -64,7 +93,7 @@ header{
     width: 50%;
     align-self: center;
     opacity:0;
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease;
 }
 .introScreen.fadeIn{
     opacity:1;
@@ -72,90 +101,178 @@ header{
 .introScreen.fadeOut{
     opacity:0 !important;
 }
-/* Intro Screens END*/
 
-/* Collection Intro Space START*/
+/* Collection Planets */
 
-.collectionStatsCanvas{
+.collectionPlanet .collectionItems{
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    position: absolute;
+}
+.collectionPlanet .totalItems{
+    background: #ffffff;
+    opacity: 0.25;
+}
+.collectionPlanet:hover .totalItems{
+    opacity: 0.5;
+    box-shadow: 0px 0px 2px 0px #ffffff;
+}
+.collectionPlanet .onlineItems{
+    background: #ffffff;
+    opacity: 1;
+}
+.collectionPlanet .collectionInfo,
+.collectionPlanet .collectionName{
+    color: #ffffff;
+    font-size: 1rem;
+    opacity: 0.5;
+}
+
+/* Collection Planets End */
+
+/* Collection Intro Space */
+
+.spaceChartCanvas{
     width: 100%;
     height: 175%;
     position: fixed;
     top:0;
     left: 0;
 }
-.collectionStats{
+.spaceChart{
     width: 100%;
     height: 100%;
     position: absolute;
 }
-.collectionPie{
+.spaceChart .collectionPlanet{
     position: absolute;
 }
-.collectionPie .collectionItems{
-    width: 6px;
-    height: 6px;
-    border-radius: 100%;
-    display: block;
-    position: absolute;
-    transition: transform 1s ease, opacity 1s ease;
+.spaceChart .collectionPlanet .collectionItems{
+    transition: transform 0.5s ease;
 }
-.collectionPie .totalItems{
-    background: #ffffff;
-    opacity: 0.25;
+.spaceChart .collectionPlanet .onlineItems{
+    opacity: 1;
 }
-.collectionPie .onlineItems{
-    background: #ffffff;
-    opacity: 0;
-}
-@keyframes blink {
-    40% {
-    opacity: 0.25;
-    box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
-    }
-    50% {
-    opacity: 0.75;
-    box-shadow: 0px 0px 25px 0px rgba(255,255,255,1);
-    }
-    60% {
-    opacity: 0.25;
-    box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
-    }
-}
-.collectionPie .collectionInfo{
+.spaceChart .collectionPlanet .collectionName,
+.spaceChart .collectionPlanet .collectionInfo{
     position: absolute;
     opacity: 0;
-    color: #ffffff;
     width: 50vw;
     pointer-events: none;
-    z-index: 100;
-    transition: opacity 1s ease;
-    margin: 1rem 0 0 1rem;
-    font-size: 0.875rem;
+    z-index: 10;
+    top: -0.5rem;
+    transition: opacity 0.5s ease, left 0.5s ease, right 0.5s ease;
 }
-.collectionPie:hover .totalItems{
+.spaceChart .collectionPlanet .collectionName {
+    right: 0;
+    text-align: right;
+}
+.spaceChart .collectionPlanet .collectionInfo {
+    left: 0;
+    text-align: left;
+}
+.spaceChart .collectionPlanet:hover .collectionName,
+.spaceChart .collectionPlanet:hover .collectionInfo{
     opacity: 0.5;
-    transition-delay: 0s !important;
 }
-.collectionPie:hover .onlineItems{
+.spaceChart .collectionPlanet:hover .collectionName {
+    right: 7rem;
+}
+.spaceChart .collectionPlanet:hover .collectionInfo {
+    left: 7rem;
+}
+
+.spaceChart.hideOnline .onlineItems{
+    transform: scale(0,0) !important;
+}
+
+/* Collection Intro Space End*/
+
+/* Main Title */
+
+.mainTitle{
+    height: 100vh;
+    background: #ffffff;
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: #093028;
+}
+.mainTitle h1 {
+    align-self: center;
+}
+.mainTitle p {
+    align-self: center;
+}
+
+/* Main Title End*/
+
+/* Chapters */
+
+.colSizeStatsFrame{
+    position: relative;
+    z-index: 20;
+    background: #093028;
+}
+.chapterText{
+    max-width: 600px;
+    margin: 0rem auto 0 auto;
+    padding: 10rem 0 0 0;
+}
+.chapterSubmenu{
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0rem auto 0 auto;
+}
+/* Chapters End */
+
+/* Collection Size */
+
+.colSizeStats{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+.colSizeStats .collectionPlanet{
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.colSizeStats .collectionPlanet .collectionItems{
+    align-self: center;
+}
+.colSizeStats .collectionPlanet .onlineItems{
+    align-self: center;
+}
+.colSizeStats .collectionPlanet .collectionName,
+.colSizeStats .collectionPlanet .collectionInfo{
+    width: 50%;
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    padding-top: 0.75rem;
+}
+.colSizeStats .collectionPlanet .collectionName{
+    text-align: right;
+    padding-right: 5rem;
+}
+.colSizeStats .collectionPlanet .collectionInfo{
+    text-align: left;
+    padding-left: 5rem;
+}
+.colSizeStats .collectionPlanet:hover .collectionName,
+.colSizeStats .collectionPlanet:hover .collectionInfo{
     opacity: 1;
-    transition-delay: 0s !important;
-}
-.collectionPie:hover .collectionInfo{
-    opacity: 0.75;
-
-}
-/* Collection Intro Space revealing START */
-
-.revealTotalCount .collectionItems{
-    transform: none !important;
-}
-.revealOnlineSize .onlineItems{
-    opacity:1;
-}
-.hideTotal .totalItems{
-    transform: none !important;
 }
 
-/* Collection Intro Space revealing END */
+/* Collection Size  End*/
 
-/* Collection Intro Space END*/
+
+

@@ -4,88 +4,107 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=3">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=4">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)"
-          href="{{ url_for('static', filename='style/from480.css') }}?v=1">
+          href="{{ url_for('static', filename='style/from480.css') }}?v=2">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)"
-          href="{{ url_for('static', filename='style/from600.css') }}?v=1">
+          href="{{ url_for('static', filename='style/from600.css') }}?v=2">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)"
-          href="{{ url_for('static', filename='style/from840.css') }}?v=1">
+          href="{{ url_for('static', filename='style/from840.css') }}?v=2">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)"
-          href="{{ url_for('static', filename='style/from960.css') }}?v=1">
+          href="{{ url_for('static', filename='style/from960.css') }}?v=2">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)"
-          href="{{ url_for('static', filename='style/from1280.css') }}?v=1">
+          href="{{ url_for('static', filename='style/from1280.css') }}?v=2">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)"
-          href="{{ url_for('static', filename='style/from1440.css') }}?v=1">
+          href="{{ url_for('static', filename='style/from1440.css') }}?v=2">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)"
-          href="{{ url_for('static', filename='style/from1600.css') }}?v=1">
+          href="{{ url_for('static', filename='style/from1600.css') }}?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
     <script>
       const collectionData = {{ collectionDataJson|tojson }};
     </script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=2" defer></script>
-    <script>
-        function parallax() {
-            var s = document.getElementById("collectionStatsCanvas");
-            var yPos = 0 - window.pageYOffset / 5;
-            s.style.top = 50 + yPos + "%";
-        }
-
-        window.addEventListener("scroll", function () {
-            parallax();
-        });
-    </script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=3" defer></script>
 
 
 </head>
 <body>
 
-<header style="visibility: hidden">
-    <h1>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</h1>
-    <select id="collectionSelect" onchange="countCollectionData()" class="collectionSelect">
-        {% for collection in records %}
-        <option value="{{ collection[4] }},{{ collection[5] }}">{{ collection[0] }}</a></option>
-        {% endfor %}
-    </select>
-</header>
+<!-- Main intro -->
 
-<section class="introScreens">
-    <div class="introScreenBox">
-        <article class="introScreen fadeIn" id="introScreen1">
-            <h1>{{museumsCount}}</h1>
-            <p class="subtitle">muzeí a galerií je zapsáno do registru sbírek Ministerstva kultury ČR</p>
-        </article>
+<section class="mainIntro">
+
+    <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+    <div class="scrollIcon">
+        <lord-icon
+            src="https://cdn.lordicon.com//xwjtkymn.json"
+            trigger="loop"
+            colors="primary:#ffffff,secondary:#ffffff"
+            style="width:4rem;height:4rem">
+        </lord-icon>
     </div>
-    <div class="introScreenBox">
-        <article class="introScreen" id="introScreen2">
-            <h1>19 090 939</h1>
-            <p class="subtitle">předmětů, uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází ve sbírkách těchto institucí</p>
-        </article>
+
+    <div class="introScreens">
+        <div class="introScreenBox">
+            <article class="introScreen fadeIn" id="introScreen1">
+                <h2>{{museumsCount}} muzeí a galerií</h2>
+                <p class="subtitle">je zapsáno v registru sbírek Ministerstva kultury ČR</p>
+            </article>
+        </div>
+        <div class="introScreenBox">
+            <article class="introScreen" id="introScreen2">
+                <h2>19 090 939 předmětů</h2>
+                <p class="subtitle">uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází ve sbírkách těchto institucí</p>
+            </article>
+        </div>
+        <div class="introScreenBox">
+            <article class="introScreen" id="introScreen3">
+                <h2>556 709 předmětů je online</h2>
+                <p class="subtitle">Tedy přibližně 3% z celkového počtu si lze prohlédnout na internetu</p>
+            </article>
+        </div>
+        <div class="introScreenBox">
+            <article class="introScreen" id="introScreen4">
+                <h2>A jak se seznámíte s těmi ostatními?</h2>
+            </article>
+        </div>
+        <div class="introScreenBox">
+            <article class="introScreen" id="introScreen5">
+                <h2>neseznámíte</h2>
+                <p class="subtitle">Zbývajících 18451672 předmětů je až na výjimky uschováno v&nbsp;nedostupných depozitářích</p>
+            </article>
+        </div>
     </div>
-    <div class="introScreenBox">
-        <article class="introScreen" id="introScreen3">
-            <h1>556 709</h1>
-            <p class="subtitle">sbírkových předmětů si můžete prohlédnout online.  Tedy přibližně 3% z celkového počtu</p>
-        </article>
+
+    <div class="spaceChartCanvas" id="spaceChartCanvas">
+        <div id="spaceChart" class="spaceChart revealTotalCount hideOnline"></div>
     </div>
-    <div class="introScreenBox">
-        <article class="introScreen" id="introScreen4">
-            <p class="subtitle">A jak se seznámíte s těmi ostatními?</p>
-        </article>
-    </div>
-    <div class="introScreenBox">
-        <article class="introScreen" id="introScreen5">
-            <h1>neseznámíte</h1>
-            <p class="subtitle">Zbývajících 18451672 předmětů je až na výjimky uschováno v&nbsp;nedostupných depozitářích</p>
-        </article>
-    </div>
+
 </section>
 
-<div class="collectionStatsCanvas" id="collectionStatsCanvas">
-    <div id="collectionStats" class="collectionStats revealTotalCount"></div>
-</div>
+<!-- Main Title -->
+
+<section class="mainTitle">
+    <h1>Otevřené sbírky</h1>
+    <p class="subtitle">Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</p>
+    <p class="subtitle">2021</p>
+</section>
+
+<!-- Stats Section -->
+
+<section class="colSizeStatsFrame">
+    <article class="chapterText">
+        <h2>Jak jsou na tom jednotlivá muzea a galerie?</h2>
+        <p class="subtitle">Porovnejte si velikosti fyzických sbírek a počet online publikovaných reprodukcí</p>
+        <nav class="chapterSubmenu" id="switchColOrder">
+            <a onclick="displayColStats('Total Items')" class="buttonOutline jsButton active">Zobrazit dle total</a>
+            <a onclick="displayColStats('Online Items')" class="buttonOutline jsButton">Zobrazit dle online</a>
+        </nav>
+    </article>
+    <div class="colSizeStats" id="colSizeStats">
+    </div>
+</section>
 
 </body>
 </html>

@@ -54,10 +54,10 @@ function elementFromTop(elem, classToEdit, distanceFromTop, unit, whatToDo) {
         if (whatToDo === 'addToSameElem'){
           addClass(elem[i], classToEdit);
         }else if(whatToDo === 'addToStats') {
-          const element = document.getElementById('collectionStats');
+          const element = document.getElementById('spaceChart');
           element.classList.add(classToEdit);
         }else if(whatToDo === 'removeFromStats'){
-          const element = document.getElementById('collectionStats');
+          const element = document.getElementById('spaceChart');
           element.classList.remove(classToEdit);
         }
       }
@@ -72,10 +72,11 @@ function elementFromTop(elem, classToEdit, distanceFromTop, unit, whatToDo) {
 window.addEventListener('scroll', throttle(function () {
   elementFromTop(document.querySelectorAll('.introScreen'), 'fadeIn', 70, 'percent','addToSameElem' );
   elementFromTop(document.querySelectorAll('.introScreen'), 'fadeOut', 10, 'percent','addToSameElem' );
+  elementFromTop(document.querySelectorAll('.scrollIcon'), 'fadeOut', 90, 'percent','addToSameElem' );
 
   elementFromTop(document.querySelectorAll('#introScreen2'), 'revealTotalCount', 70, 'percent','removeFromStats' );
   elementFromTop(document.querySelectorAll('#introScreen2'), 'revealTotalSize', 70, 'percent','addToStats' );
-  elementFromTop(document.querySelectorAll('#introScreen3'), 'revealOnlineSize', 70, 'percent','addToStats' );
+  elementFromTop(document.querySelectorAll('#introScreen3'), 'hideOnline', 70, 'percent','removeFromStats' );
   elementFromTop(document.querySelectorAll('#introScreen5'), 'hideTotal', 70, 'percent','addToStats' );
 
 }, 100), false);
@@ -84,29 +85,30 @@ window.addEventListener('resize', debounce(function () {
   /* add same calls as above */
 }, 100), false);
 
+
+// preparing collection data
+let collectionsCount = collectionData.length;
+
 // drawing space
 
 let displayChart = () => {
-  let canvas = document.getElementById('collectionStats');
+  let canvas = document.getElementById('spaceChart');
   let canvasWidth = canvas.offsetWidth;
   let canvasHeight = canvas.offsetHeight;
-  let collectionsCount = collectionData.length;
-
   let htmlResult = [];
   for (collection = 0; collection < collectionsCount ; collection++) {
     let positionLeft = Math.ceil(Math.random()*canvasWidth);
     let positionTop = Math.ceil(Math.random()*canvasHeight);
     let totalItems = collectionData[collection]['Total Items'];
     let onlineItems = collectionData[collection]['Online Items'];
-    let totalSize = Math.ceil(Math.sqrt(totalItems/1000));
-    let onlineSize = Math.ceil(Math.sqrt(onlineItems/1000));
+    let totalSize = Math.ceil(Math.sqrt(totalItems/200));
+    let onlineSize = Math.ceil(Math.sqrt(onlineItems/200));
     let museumName = collectionData[collection]['Collection Name'];
     let transitionDelay = Math.random()*3;
     let animationChance = () =>{
       let chance = Math.random();
-      let animationDelay = Math.random()*5;
-      if (chance > 0.75){
-        return `animation: blink 5s 3 ${animationDelay}s;`
+      if (chance > 0.9){
+        return 'showCollectionInfo'
       }else {
         return ''
       }
@@ -115,9 +117,10 @@ let displayChart = () => {
 
     let collectionItem;
     collectionItem = `
-    <div class='collectionPie' style='left: ${positionLeft}px; top: ${positionTop}px;'>
-      <span class="collectionInfo">${museumName}<br><strong>${onlineItems}</strong> z ${totalItems} sbírkových předmětů je přístupných online</span>
-      <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize}); transition-delay: ${transitionDelay}s; ${addAnimation}'></span>
+    <div class='collectionPlanet' style='left: ${positionLeft}px; top: ${positionTop}px;'>
+      <span class="collectionName">${museumName}</span>
+      <span class="collectionInfo"><strong>${onlineItems}</strong> z ${totalItems} předmětů je online</span>
+      <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize}); transition-delay: ${transitionDelay}s;'></span>
       <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize}); transition-delay: ${transitionDelay}s;'></span>
     </div>`;
 
@@ -129,19 +132,70 @@ let displayChart = () => {
   }
   canvas.innerHTML = htmlResult.join("");
 }
-window.onload = function(){
-  displayChart();
+
+//* drawing collection stats
+
+let displayColStats = (sortKey) => {
+  let canvas = document.getElementById('colSizeStats');
+  let htmlResult = [];
+
+  // sort by value
+  collectionData.sort(function (a, b) {
+    return b[sortKey] - a[sortKey];
+  });
+  console.log(collectionData)
+
+  for (collection = 0; collection < collectionsCount ; collection++) {
+    let totalItems = collectionData[collection]['Total Items'];
+    let onlineItems = collectionData[collection]['Online Items'];
+    let totalSize = Math.ceil(Math.sqrt(totalItems/1000));
+    let onlineSize = Math.ceil(Math.sqrt(onlineItems/1000));
+    let museumName = collectionData[collection]['Collection Name'];
+
+    let collectionItem = `
+    <div class='collectionPlanet'>
+      <span class="collectionName">${museumName}</span>
+      <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize});'></span>
+      <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize});'></span>
+      <span class="collectionInfo"><strong>${onlineItems}</strong> z ${totalItems} předmětů je online</span>
+    </div>`;
+
+    htmlResult.push(collectionItem);
+  }
+  canvas.innerHTML = htmlResult.join("");
 }
 
-
-//* parallax
+// parallax
 
 function parallax() {
-  let s = document.getElementById("collectionStatsCanvas");
+  let s = document.getElementById("spaceChartCanvas");
   let yPos = 0 - window.pageYOffset / 75;
   s.style.top = 0 + yPos + "%";
 }
 
+// activated menu item
+
+// Get the container element
+let btnContainer = document.getElementById("switchColOrder");
+
+// Get all buttons with class="btn" inside the container
+let btns = btnContainer.getElementsByClassName("jsButton");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+// calling functions
+
+window.onload = function(){
+  displayChart();
+  displayColStats('Total Items');
+}
 window.addEventListener("scroll", function () {
   parallax();
 });

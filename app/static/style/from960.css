@@ -2,5 +2,28 @@
 /* styles applied from a window width of 960px */
 
 html{
-    font-size: 18px;
+    font-size: 16px;
 }
+/* Collection Intro Space revealing START */
+
+.revealTotalCount .collectionItems{
+    transform: none !important;
+}
+.revealTotalCount .showCollectionInfo,
+.revealTotalCount .onlineItems{
+    opacity: 0;
+}
+.revealTotalSize .showCollectionInfo{
+    opacity: 0.25;
+}
+.revealTotalSize .onlineItems{
+    opacity: 0;
+}
+.revealOnlineSize .onlineItems{
+    opacity:1;
+}
+.hideTotal .totalItems{
+    transform: none !important;
+}
+
+/* Collection Intro Space revealing END */
