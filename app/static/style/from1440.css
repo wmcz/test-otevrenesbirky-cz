@@ -15,3 +15,6 @@ h4,
     font-size: 1.4em;
     margin: 0 0 1.643rem 0;
 }
+.chart.extendedChart canvas {
+    width: 60%;
+}

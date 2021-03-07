@@ -151,13 +151,32 @@ let displayColStats = (sortKey) => {
     let totalSize = Math.ceil(Math.sqrt(totalItems/1000));
     let onlineSize = Math.ceil(Math.sqrt(onlineItems/1000));
     let museumName = collectionData[collection]['Collection Name'];
+    let getUrl = () =>{
+      if(collectionData[collection]['Web Url'] !== ""){
+        return collectionData[collection]['Web Url'];
+      }if(collectionData[collection]['Esbirky Url'] !== ""){
+        return collectionData[collection]['Esbirky Url'];
+      }if(collectionData[collection]['Citem Url'] !== ""){
+        return collectionData[collection]['Citem Url'];
+      }
+    }
+    let webUrl = getUrl();
+    let webLink
+    let createWebLink = () =>{
+      if(webUrl !== undefined){
+        webLink = `<a href="${webUrl}" target="_blank" title="${museumName} | online katalog sbírkových prředmětů" class="collectionLink">Katalog</a>`
+      }else {
+        webLink = ""
+      }
+    }
+    createWebLink()
 
     let collectionItem = `
     <div class='collectionPlanet'>
-      <span class="collectionName">${museumName}</span>
       <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize});'></span>
       <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize});'></span>
-      <span class="collectionInfo"><strong>${onlineItems}</strong> z ${totalItems} předmětů je online</span>
+      <span class="collectionName">${museumName}</span>
+      <span class="collectionInfo"><strong>${onlineItems}</strong> z ${totalItems} předmětů je online ${webLink}</span>
     </div>`;
 
     htmlResult.push(collectionItem);
@@ -168,9 +187,11 @@ let displayColStats = (sortKey) => {
 // parallax
 
 function parallax() {
-  let s = document.getElementById("spaceChartCanvas");
-  let yPos = 0 - window.pageYOffset / 75;
-  s.style.top = 0 + yPos + "%";
+  if(document.body.clientWidth > 960) {
+    let s = document.getElementById("spaceChartCanvas");
+    let yPos = 0 - window.pageYOffset / 75;
+    s.style.top = 0 + yPos + "%";
+  }
 }
 
 // activated menu item
@@ -188,6 +209,19 @@ for (let i = 0; i < btns.length; i++) {
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
   });
+}
+
+// show and hide all collections
+let toggleCollections = () => {
+  let statsList = document.getElementById('colSizeStats')
+  statsList.classList.toggle("revealAll");
+
+  let x = document.getElementById("revealButton");
+  if (x.innerHTML === "Zobrazit vše") {
+    x.innerHTML = "Skrýt";
+  } else {
+    x.innerHTML = "Zobrazit vše";
+  }
 }
 
 // calling functions

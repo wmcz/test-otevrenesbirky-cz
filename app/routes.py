@@ -21,7 +21,12 @@ def index():
     collectionData = worksheet.get('A2:H')
     collectionDataJson = []
     for collection in collectionData:
-        collectionDataJson.append({'Collection Name': collection[0], 'Total Items': int(collection[4]), 'Online Items': int(collection[5])})
+        collectionDataJson.append({'Collection Name': collection[0],
+                                   'Total Items': int(collection[4]),
+                                   'Online Items': int(collection[5]),
+                                   'Esbirky Url': collection[1],
+                                   'Citem Url': collection[2],
+                                   'Web Url': collection[3]})
     museumsCount = len(collectionDataJson);
     return render_template('base.html',
                            collectionDataJson=collectionDataJson,

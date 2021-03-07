@@ -4,7 +4,12 @@
 html{
     font-size: 16px;
 }
-/* Collection Intro Space revealing START */
+.collectionPlanet .collectionItems{
+    width: 6px;
+    height: 6px;
+}
+
+/* Collection Intro Space revealing */
 
 .revealTotalCount .collectionItems{
     transform: none !important;
@@ -25,5 +30,40 @@ html{
 .hideTotal .totalItems{
     transform: none !important;
 }
+.spaceChart.hideOnline .onlineItems{
+    transform: scale(0,0) !important;
+}
 
-/* Collection Intro Space revealing END */
+/* Collection Intro Space revealing end */
+
+/* Collection Size */
+
+.colSizeStats{
+    margin: -15rem 0 1rem 0;
+}
+.colSizeStats .collectionPlanet{
+    width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+}
+.colSizeStats .collectionPlanet .collectionItems{
+    display: flex;
+}
+.colSizeStats .collectionPlanet .collectionName,
+.colSizeStats .collectionPlanet .collectionInfo{
+    width: 50%;
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    margin-top: 0;
+}
+.colSizeStats .collectionPlanet .collectionName{
+    text-align: right;
+    padding: 1.5rem 5rem 0 0;
+}
+.colSizeStats .collectionPlanet .collectionInfo{
+    text-align: left;
+    padding: 1.5rem 0 0 5rem;
+}
+
+/* Collection Size End*/

@@ -1,4 +1,6 @@
 @charset "utf-8";
 /* styles applied from a window width of 1280px */
 
-
+.chart.extendedChart canvas {
+    width: 80%;
+}
