@@ -1,5 +1,6 @@
 from app import app
-from flask import render_template, jsonify, request, abort
+from flask import render_template, send_from_directory, send_file
+import csv
 import os
 
 # Google Sheets API Setup
@@ -12,13 +13,14 @@ credential = ServiceAccountCredentials.from_json_keyfile_name("gcpKey.json",
                                                                "https://www.googleapis.com/auth/drive.file",
                                                                "https://www.googleapis.com/auth/drive"])
 
+client = gspread.authorize(credential)
+gsheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1rMSSY3so30Y5RDnS_B6kKDP25-9rIBYD-P-bl_rVJ2I')
+worksheet = gsheet.get_worksheet(0)
+collectionData = worksheet.get('A2:H')
+
 
 @app.route('/')
 def index():
-    client = gspread.authorize(credential)
-    gsheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1rMSSY3so30Y5RDnS_B6kKDP25-9rIBYD-P-bl_rVJ2I')
-    worksheet = gsheet.get_worksheet(0)
-    collectionData = worksheet.get('A2:H')
     collectionDataJson = []
     for collection in collectionData:
         collectionDataJson.append({'Collection Name': collection[0],
@@ -39,3 +41,13 @@ def index():
                            museumsCount=museumsCount,
                            totalItems=totalItems,
                            onlineItems=onlineItems)
+
+@app.route('/downloaddata')
+def downloaddata ():
+    with open('openCollections.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Collection", "eSbirky url", "CITeM url", "Web url", "Total 2020", "Online 2020", "Total 2021", "Online 2021"])
+        for i in collectionData:
+            writer.writerow(i)
+    path = "../openCollections.csv"
+    return send_file(path, as_attachment=True)

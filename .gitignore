@@ -3,3 +3,4 @@ venv/*
 .flaskenv
 config.py
 gcpKey.json
+openCollections.csv
