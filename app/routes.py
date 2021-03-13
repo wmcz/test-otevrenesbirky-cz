@@ -28,6 +28,14 @@ def index():
                                    'Citem Url': collection[2],
                                    'Web Url': collection[3]})
     museumsCount = len(collectionDataJson);
+    totalItems = 0
+    onlineItems = 0
+    for museum in collectionDataJson:
+        totalItems += museum['Total Items']
+        onlineItems += museum['Online Items']
+
     return render_template('base.html',
                            collectionDataJson=collectionDataJson,
-                           museumsCount = museumsCount)
+                           museumsCount=museumsCount,
+                           totalItems=totalItems,
+                           onlineItems=onlineItems)

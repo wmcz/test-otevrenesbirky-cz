@@ -55,14 +55,14 @@
         </div>
         <div class="introScreenBox">
             <article class="introScreen" id="introScreen2">
-                <h2>19 090 939 předmětů</h2>
+                <h2>{{ "{:,}".format(totalItems).replace(',', ' ') }} předmětů</h2>
                 <p class="subtitle">uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází ve sbírkách těchto institucí</p>
             </article>
         </div>
         <div class="introScreenBox">
             <article class="introScreen" id="introScreen3">
-                <h2>556 709 předmětů je online</h2>
-                <p class="subtitle">Tedy přibližně 3% z celkového počtu si lze prohlédnout na internetu</p>
+                <h2>{{ "{:,}".format(onlineItems).replace(',', ' ') }} předmětů je online</h2>
+                <p class="subtitle">Tedy přibližně {{(onlineItems/totalItems*100)|round(1,'common')}} % z celkového počtu si lze prohlédnout na internetu</p>
             </article>
         </div>
         <div class="introScreenBox">
@@ -73,7 +73,7 @@
         <div class="introScreenBox">
             <article class="introScreen" id="introScreen5">
                 <h2>neseznámíte</h2>
-                <p class="subtitle">Zbývajících 18451672 předmětů je až na výjimky uschováno v&nbsp;nedostupných depozitářích</p>
+                <p class="subtitle">Zbývajících {{ "{:,}".format(totalItems - onlineItems).replace(',', ' ') }} předmětů je až na výjimky uschováno v&nbsp;nedostupných depozitářích</p>
             </article>
         </div>
     </div>
@@ -114,7 +114,7 @@
     <article class="chapterText">
         <h2>K čemu jsou otevřené sbírky dobré?</h2>
         <p class="subtitle">Sbírkové předměty publikované online jsou dostupnější, přehlednější a lépe přístupné pro <strong>učitele, badatele, umělce, designéry i širokou veřejnost</strong></p>
-        <p>Naleznou uplatnění při vzdělávání, výzkumu nebo v kreativním průmyslu; ať už se jedná o film, divadlo nebo architekturu, při tvorbě různorodých publikací či v nových disciplínách, jako je design počítačových her a digitálních prezentací. Zpřístupnění reprodukcí online má pozitivní vliv i na samotný artefakt; jeho potenciál pro vystavení i probádání je mnohem větší než u nereprodukovaných děl. Navíc se snižuje manipulace s cennými originály, a tím i míra jejich opotřebení. Je tedy možné říct, že čím více digitálních reprodukcí bude dostupných online, tím lépe. A není třeba se bát, že by se tím snížila návštěvnost muzeí a galerií.</p>
+        <p>Naleznou uplatnění při vzdělávání, výzkumu nebo v kreativním průmyslu; ať už se jedná o film, divadlo nebo architekturu, při tvorbě různorodých publikací či v disciplínách, jako je design počítačových her a digitálních prezentací. Zpřístupnění reprodukcí online má pozitivní vliv i na samotný artefakt; jeho potenciál pro vystavení i probádání je mnohem větší než u nereprodukovaných děl. Navíc se snižuje manipulace s cennými originály, a tím i míra jejich opotřebení. Je tedy možné říct, že čím více digitálních reprodukcí bude dostupných online, tím lépe. A není třeba se bát, že by se tím snížila návštěvnost muzeí a galerií.</p>
     </article>
 
     <div class="extendedChart chart">
@@ -165,6 +165,8 @@
     </div>
 
 </section>
+
+<!-- Jsme horší než evropský průměr -->
 
 <section class="storyChapter">
     <article class="chapterText">
@@ -225,6 +227,8 @@
     </div>
 </section>
 
+<!-- Jak se sbírky zpřístupňují -->
+
 <section class="storyChapter">
     <article class="chapterText">
         <h2>Jak se sbírky zpřístupňují?</h2>
@@ -264,10 +268,70 @@
     </div>
 </section>
 
+<!-- Co brání otevřenému přístupu -->
+
 <section class="storyChapter">
     <article class="chapterText">
-        <h2>Copyright brání otevírání sbírek</h2>
-        <p class="subtitle">Zpřístupňování sbírkových předmětů online je nutné provádět v souladu s <strong>autorskými právy</strong>, která však mohou představovat <strong>významnou překážku</strong>.</p>
+        <h2>Co brání otevřenému přístupu ke sbírkám</h2>
+        <p class="subtitle"><strong>65&nbsp;domácích institucí</strong> odpovědělo na otázku „S&nbsp;jakými problémy se potýkáte při procesu digitalizace sbírkových předmětů a jejich zveřejnění?</p>
+        <p>Proč jen mizivé procento kulturních artefaktů je dostupné online? Co stojí za smutným výsledkem? Jak to, že veřejné organizace nevyužívají současné technologie, aby co nejvíce zpřístupnily uchovávané bohatství?</p>
+    </article>
+
+    <div class="extendedChart chart">
+        <canvas id="czObstacles" style="display: block;">
+        <script>
+            // Global parameters for all charts:
+            Chart.defaults.global.responsive = false;
+            Chart.defaults.global.defaultFontColor = '#000000';
+            Chart.defaults.global.defaultFontSize = 16;
+            Chart.defaults.global.defaultFontFamily = "'Montserrat', sans-serif";
+            Chart.defaults.global.tooltips.backgroundColor = "#000000";
+            Chart.defaults.global.tooltips.titleFontSize = 16;
+            Chart.defaults.global.tooltips.bodyFontSize = 16;
+            Chart.defaults.global.tooltips.cornerRadius = 0;
+            Chart.defaults.global.tooltips.xPadding = 20;
+            Chart.defaults.global.tooltips.yPadding = 20;
+            Chart.defaults.global.tooltips.borderColor = '#ffffff';
+            Chart.defaults.global.tooltips.borderWidth = 1;
+            Chart.defaults.scale.gridLines.color = '#000000';
+            Chart.defaults.scale.ticks.beginAtZero = true;
+
+            // define the chart data
+            var chartData = {
+                labels:
+                    ['Organizační náročnost', 'Nedostatek financí', 'Nedostatek technických znalostí', 'Nedostatek personálu','Autorská práva', 'Odlišné priority vedení či zřizovatele', 'Nízké povědomí o přínosech'],
+                datasets:
+                    [
+                        {
+                            label: ' Podíl (%) muzeí v ČR, která se setkávají s daným problémem při zpřístupňování sbírek online',
+                            backgroundColor: '#000000',
+                            data: [64.9, 45.6, 33.4, 18, 14, 12.3, 7],
+                            maxBarThickness: 20,
+                        }
+                    ]
+            }
+
+            // get chart canvas
+            var ctx = document.getElementById("czObstacles").getContext("2d");
+
+            // create the chart using the chart canvas
+
+            var allCzCollections = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: chartData,
+            });
+        </script>
+    </canvas>
+    </div>
+
+</section>
+
+<!-- Copyright zabraňuje otevírání sbírek -->
+
+<section class="storyChapter">
+    <article class="chapterText">
+        <h2>Copyright zabraňuje otevírání sbírek</h2>
+        <p class="subtitle"><strong>Autorská práva</strong> jsou zřejmě nejzajímavější z výše uvedených překážek. Už jen z toho důvodu, že toto <strong>omezení vyplývá z celospolečenských legislativních norem</strong>, a tak je z pohledu jednotlivých organizací nejhůře řešitelné.</p>
         <p>Nejedná-li se o <a href="https://cs.wikipedia.org/wiki/Voln%C3%A9_d%C3%ADlo" target="_blank">volné dílo</a> (u nějž uplynulo 70 let od smrti jeho autora), musí muzeum pro jeho zveřejnění disponovat potřebnou <strong>licencí od držitele majetkových práv</strong>. Získávání takového oprávnění však bývá náročný proces, který může představovat významnou překážku otevírání sbírek. Ani publikace díla online však sama o sobě neznamená, že je možné reprodukci dále využívat. K tomu je nutné, aby bylo na stránce uvedeno, že je dílo dostupné pod <a href="https://creativecommons.org/licenses/" target="_blank">otevřenou licencí</a>. Zmínku o licenčních podmínkách však ve svých katalozích uvádějí jen některá domácí muzea.</p>
         <p>Podíl typů licencí u digitalizovaných sbírkových předmětů v držení evropských muzeí:</p>
     </article>
@@ -307,6 +371,8 @@
     </div>
 </section>
 
+<!-- Otevřená data usnadňují další využití -->
+
 <section class="storyChapter">
     <article class="chapterText">
         <h2>Otevřená data usnadňují další využití</h2>
@@ -322,37 +388,36 @@
 </section>
 
 <footer>
-    <div class="storyChapter">
-        <article>
-            <h2>Metodika průzkumu</h2>
-            <p>Pro průzkum byla využita a kombinována data z několika zdrojů. Informace o velikosti fyzických kolekcí vychází z údajů registrovaných v  <a href="https://www.cesonline.cz/" target="_blank">Centrální evidenci sbírek muzejní povahy</a> (dále jen CES), kde je u každé podsbírky uveden údaj o počtu obsažených artefaktů. Počet fyzických artefaktů ve sbírce tedy odpovídá součtu artefaktů ze všech pod ní spadajících podsbírek. Ne vždy však data zobrazovaná v průzkumu přímo odpovídají informacím z evidence. V některých případech se při jejich zpracování objevily dílčí problémy, které jsme řešili následujícími způsoby:</p>
-            <ol>
-                <li>Většina sbírkotvorných institucí má v CES registrovánu právě jednu sbírku, což umožnilo porovnání počtu v ní evidovaných fyzických artefaktů s celkovým počtem položek v online katalogu dané instituce. V případech, kdy měla instituce registrovánu více než jednu sbírku, jsme tyto sbírky sloučili do jedné, aby bylo porovnání možné.</li>
-                <li>V ojedinělých případech překročil počet registrovaných fyzických artefaktů v CES počet online přístupných děl. V takových situacích jsme považovali údaj registrovaný v CES za zastaralý a nahradili jsme jej velikostí online kolekce. </li>
-            </ol>
-            <p>Jako online zpřístupněný artefakt se v tomto průzkumu považuje položka zařazená do online katalogu obsahující digitální reprodukci (například fotografii, sken, video apod. bez ohledu na technickou kvalitu) a inventární číslo. Při určování rozsahu online katalogů jsme u každé instituce brali v potaz digitalizované artefakty zpřístupněné v rámci:</p>
-            <ol>
-                <li><a href="https://www.esbirky.cz/" target="_blank">Portálu eSbírky Národního muzea</a></li>
-                <li><a href="http://www.citem.cz/promus11/index.php?page=catalogue" target="_blank">Portálu CITeM - Registru sbírek výtvarného umění</a></li>
-                <li>Online katalogů zřizovaných jednotlivými muzey či menšími skupinami muzeí</li>
-            </ol>
-            <p>Ve třetím jmenovaném případě byl za online katalog považován takový web, který strukturovaně zobrazoval jednotlivé kulturní artefakty včetně jejich obrázků i popisů a který nabízel nástroje k jejich vyhledávání či systematickému procházení. </p>
-            <p>Některé instituce zpřístupňují digitalizované artefakty více cestami zároveň (například v portálu eSbírky a ve vlastním online katalogu). V takové situaci byl započítán katalog s větším počtem položek, nikoliv součet položek z obou zdrojů. Důvodem pro to byl namátkově ověřený předpoklad, že se v katalogu s menším rozsahem objevují pouze takové artefakty, které jsou rovněž zahrnuty ve větším katalogu. Ze stejného důvodu nebyla do průzkumu zahrnuta data českých institucí z portálů Europeana Collections a Wikimedia Commons, které, oproti výše uvedeným zdrojům, obsahují nižší počty zastoupených artefaktů.</p>
-            <p>Ve většině případů bylo možné z online katalogů získat informaci o počtu obsažených digitalizovaných artefaktů spadajících pod danou instituci. V případě portálu CITeM však katalog nerozlišuje položky s digitální reprodukcí a bez ní, což znejasňuje reálný počet online zpřístupněných artefaktů. V tomto případě jsme tedy použili statistický odhad celkového rozsahu na základě menšího vzorku náhodně vybraných položek.</p>
-            <p>Pro rozšíření úhlu pohledu jsme data z českého prostředí doplnili o vybrané související údaje v evropském kontextu. Tyto informace byly převzaty ze zdrojů:</p>
-            <ol>
-                <li><a href="https://ec.europa.eu/eurostat/documents/3217494/10177894/KS-01-19-712-EN-N.pdf/915f828b-daae-1cca-ba54-a87e90d6b68b" target="_blank">Eurostat Culture Statistics 2019</a></li>
-                <li><a href="https://pro.europeana.eu/post/europeana-strategy-2020-2025-empowering-digital-change?fbclid=IwAR2I4EA95sWFayNxR_t21PcGWEVcxFb5r-MwDuSPDkyPr6ntSVBfltoATs0" target="_blank">Europeana strategy 2020-2025: Empowering digital change</a></li>
-                <li><a href="https://pro.europeana.eu/files/Europeana_Professional/Projects/Project_list/ENUMERATE/deliverables/DSI-2_Deliverable%20D4.4_Europeana_Report%20on%20ENUMERATE%20Core%20Survey%204.pdf" target="_blank">Europeana DSI 2– Access to Digital Resources of European Heritage</a></li>
-            </ol>
-            <p>Vzhledem k velkému množství zdrojů, které bylo nutné zpracovat, jsme mohli některý katalog či jeho část opomenout. Budeme rádi, když nás v takovém případě upozorníte.</p>
-            <br><br>
-            <p><a href="/static/csv/cz-online-collections.csv">Stáhnout data ve formátu .csv</a><br>Dataset obsahuje údaje o velikosti fyzických sbírek, digitálně přístupných sbírek a odkazy na online katalogy daných institucí.</p>
-            <p><a href="/static/downloads/TZ-otevrene-sbirky.pdf">Stáhnout tiskovou zprávu</a></p>
-            <br><br>
-            <p><a href="http://lukaspilka.cz/" target="_blank">Lukáš Pilka</a> a <a href="mailto: tereza.skvarova@gmail.com">Tereza Škvárová</a>, duben 2021</p>
-        </article>
-    </div>
+    <article class="chapterText">
+        <h2>Metodika průzkumu</h2>
+        <p class="subtitle">Jakým způsobem byla získána a zpracována data</p>
+        <p>Pro průzkum byla využita a kombinována data z několika zdrojů. Informace o velikosti fyzických kolekcí vychází z údajů registrovaných v  <a href="https://www.cesonline.cz/" target="_blank">Centrální evidenci sbírek muzejní povahy</a> (dále jen CES), kde je u každé podsbírky uveden údaj o počtu obsažených artefaktů. Počet fyzických artefaktů ve sbírce tedy odpovídá součtu artefaktů ze všech pod ní spadajících podsbírek. Ne vždy však data zobrazovaná v průzkumu přímo odpovídají informacím z evidence. V některých případech se při jejich zpracování objevily dílčí problémy, které jsme řešili následujícími způsoby:</p>
+        <ol>
+            <li>Většina sbírkotvorných institucí má v CES registrovánu právě jednu sbírku, což umožnilo porovnání počtu v ní evidovaných fyzických artefaktů s celkovým počtem položek v online katalogu dané instituce. V případech, kdy měla instituce registrovánu více než jednu sbírku, jsme tyto sbírky sloučili do jedné, aby bylo porovnání možné.</li>
+            <li>V ojedinělých případech překročil počet registrovaných fyzických artefaktů v CES počet online přístupných děl. V takových situacích jsme považovali údaj registrovaný v CES za zastaralý a nahradili jsme jej velikostí online kolekce. </li>
+        </ol>
+        <p>Jako online zpřístupněný artefakt se v tomto průzkumu považuje položka zařazená do online katalogu obsahující digitální reprodukci (například fotografii, sken, video apod. bez ohledu na technickou kvalitu) a inventární číslo. Při určování rozsahu online katalogů jsme u každé instituce brali v potaz digitalizované artefakty zpřístupněné v rámci:</p>
+        <ol>
+            <li><a href="https://www.esbirky.cz/" target="_blank">Portálu eSbírky Národního muzea</a></li>
+            <li><a href="http://www.citem.cz/promus11/index.php?page=catalogue" target="_blank">Portálu CITeM - Registru sbírek výtvarného umění</a></li>
+            <li>Online katalogů zřizovaných jednotlivými muzey či menšími skupinami muzeí</li>
+        </ol>
+        <p>Ve třetím jmenovaném případě byl za online katalog považován takový web, který strukturovaně zobrazoval jednotlivé kulturní artefakty včetně jejich obrázků i popisů a který nabízel nástroje k jejich vyhledávání či systematickému procházení. </p>
+        <p>Některé instituce zpřístupňují digitalizované artefakty více cestami zároveň (například v portálu eSbírky a ve vlastním online katalogu). V takové situaci byl započítán katalog s větším počtem položek, nikoliv součet položek z obou zdrojů. Důvodem pro to byl namátkově ověřený předpoklad, že se v katalogu s menším rozsahem objevují pouze takové artefakty, které jsou rovněž zahrnuty ve větším katalogu. Ze stejného důvodu nebyla do průzkumu zahrnuta data českých institucí z portálů Europeana Collections a Wikimedia Commons, které, oproti výše uvedeným zdrojům, obsahují nižší počty zastoupených artefaktů.</p>
+        <p>Ve většině případů bylo možné z online katalogů získat informaci o počtu obsažených digitalizovaných artefaktů spadajících pod danou instituci. V případě portálu CITeM však katalog nerozlišuje položky s digitální reprodukcí a bez ní, což znejasňuje reálný počet online zpřístupněných artefaktů. V tomto případě jsme tedy použili statistický odhad celkového rozsahu na základě menšího vzorku náhodně vybraných položek.</p>
+        <p>Pro rozšíření úhlu pohledu jsme data z českého prostředí doplnili o vybrané související údaje v evropském kontextu. Tyto informace byly převzaty ze zdrojů:</p>
+        <ol>
+            <li><a href="https://ec.europa.eu/eurostat/documents/3217494/10177894/KS-01-19-712-EN-N.pdf/915f828b-daae-1cca-ba54-a87e90d6b68b" target="_blank">Eurostat Culture Statistics 2019</a></li>
+            <li><a href="https://pro.europeana.eu/post/europeana-strategy-2020-2025-empowering-digital-change?fbclid=IwAR2I4EA95sWFayNxR_t21PcGWEVcxFb5r-MwDuSPDkyPr6ntSVBfltoATs0" target="_blank">Europeana strategy 2020-2025: Empowering digital change</a></li>
+            <li><a href="https://pro.europeana.eu/files/Europeana_Professional/Projects/Project_list/ENUMERATE/deliverables/DSI-2_Deliverable%20D4.4_Europeana_Report%20on%20ENUMERATE%20Core%20Survey%204.pdf" target="_blank">Europeana DSI 2– Access to Digital Resources of European Heritage</a></li>
+        </ol>
+        <p>Vzhledem k velkému množství zdrojů, které bylo nutné zpracovat, jsme mohli některý katalog či jeho část opomenout. Budeme rádi, když nás v takovém případě upozorníte.</p>
+        <br><br>
+        <p><a href="/static/csv/cz-online-collections.csv">Stáhnout data ve formátu .csv</a><br>Dataset obsahuje údaje o velikosti fyzických sbírek, digitálně přístupných sbírek a odkazy na online katalogy daných institucí.</p>
+        <p><a href="/static/downloads/TZ-otevrene-sbirky.pdf">Stáhnout tiskovou zprávu</a></p>
+        <br><br>
+        <p><a href="http://lukaspilka.cz/" target="_blank">Lukáš Pilka</a> a <a href="mailto: tereza.skvarova@gmail.com">Tereza Škvárová</a>, duben 2021</p>
+    </article>
 </footer>
 
 </body>

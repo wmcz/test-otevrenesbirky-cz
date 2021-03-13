@@ -44,7 +44,7 @@ h4,
     text-align: center;
 }
 p{
-    text-align: justify;
+    text-align: left;
 }
 a {
     color: #000000;
@@ -75,6 +75,7 @@ strong{
 }
 .buttonOutline:hover{
     opacity: 1;
+    color: #ffffff;
 }
 .buttonOutline.active{
     background: rgba(255,255,255,0.25);
@@ -335,7 +336,26 @@ strong{
     color: #ffffff;
 }
 
-/* Collection Size  End*/
+/* Collection Size End */
+
+/* Footer */
+
+footer {
+    padding: 10rem 1rem 10rem 1rem;
+    position: relative;
+    z-index: 20;
+    background: black;
+    color: #cccccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+footer a{
+    color: #cccccc;
+    text-decoration-color: #ffffff;
+}
+footer a:hover{
+    color: #ffffff;
+}
 
 
 

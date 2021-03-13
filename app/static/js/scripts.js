@@ -1,3 +1,9 @@
+// number with spaces
+
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
 // section fade in
 
 function debounce(fn, ms) {
@@ -101,6 +107,8 @@ let displayChart = () => {
     let positionTop = Math.ceil(Math.random()*canvasHeight);
     let totalItems = collectionData[collection]['Total Items'];
     let onlineItems = collectionData[collection]['Online Items'];
+    let totalItemsString = numberWithSpaces(totalItems);
+    let onlineItemsString = numberWithSpaces(onlineItems);
     let totalSize = Math.ceil(Math.sqrt(totalItems/200));
     let onlineSize = Math.ceil(Math.sqrt(onlineItems/200));
     let museumName = collectionData[collection]['Collection Name'];
@@ -119,7 +127,7 @@ let displayChart = () => {
     collectionItem = `
     <div class='collectionPlanet' style='left: ${positionLeft}px; top: ${positionTop}px;'>
       <span class="collectionName">${museumName}</span>
-      <span class="collectionInfo"><strong>${onlineItems}</strong> z ${totalItems} předmětů je online</span>
+      <span class="collectionInfo"><strong>${onlineItemsString}</strong> z ${totalItemsString} předmětů je online</span>
       <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize}); transition-delay: ${transitionDelay}s;'></span>
       <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize}); transition-delay: ${transitionDelay}s;'></span>
     </div>`;
@@ -148,6 +156,8 @@ let displayColStats = (sortKey) => {
   for (collection = 0; collection < collectionsCount ; collection++) {
     let totalItems = collectionData[collection]['Total Items'];
     let onlineItems = collectionData[collection]['Online Items'];
+    let totalItemsString = numberWithSpaces(totalItems);
+    let onlineItemsString = numberWithSpaces(onlineItems);
     let totalSize = Math.ceil(Math.sqrt(totalItems/1000));
     let onlineSize = Math.ceil(Math.sqrt(onlineItems/1000));
     let museumName = collectionData[collection]['Collection Name'];
@@ -176,7 +186,7 @@ let displayColStats = (sortKey) => {
       <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize});'></span>
       <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize});'></span>
       <span class="collectionName">${museumName}</span>
-      <span class="collectionInfo"><strong>${onlineItems}</strong> z ${totalItems} předmětů je online ${webLink}</span>
+      <span class="collectionInfo"><strong>${onlineItemsString}</strong> z ${totalItemsString} předmětů je online ${webLink}</span>
     </div>`;
 
     htmlResult.push(collectionItem);
