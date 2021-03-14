@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, send_from_directory, send_file
+from flask import render_template, send_file, request
 import csv
 import os
 
@@ -44,10 +44,10 @@ def index():
 
 @app.route('/downloaddata')
 def downloaddata ():
-    with open('openCollections.csv', 'w', newline='') as file:
+    with open('app/static/openCollections.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Collection", "eSbirky url", "CITeM url", "Web url", "Total 2020", "Online 2020", "Total 2021", "Online 2021"])
-        for i in collectionData:
-            writer.writerow(i)
-    path = "../openCollections.csv"
+        for collection in collectionData:
+            writer.writerow(collection)
+    path = "static/openCollections.csv"
     return send_file(path, as_attachment=True)
