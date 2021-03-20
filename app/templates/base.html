@@ -1,31 +1,58 @@
 <html lang="cs">
 <head>
-    <title>Otevřené sbírky | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144703876-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-144703876-3');
+    </script>
+
+    <title>Otevřené sbírky 2021 | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content='V muzeích a galeriích ČR se nachází přes 25 milionů sbírkových předmětů. Jak jsou na tom jednotlivé instituce? Porovnejte si velikosti fyzických sbírek a počet online publikovaných reprodukcí.'>
+    <meta name="author" content="Lukáš Pilka a Tereza Škvárová">
+    <meta name="language" content="CS">
+    <meta name="robots" content="index,follow">
+    <meta name="date" content="Apr. 7, 2020">
+
+    <!-- OG data -->
+    <meta property="og:title" content="Otevřené sbírky 2021 | Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../static/images/ogOpenCollections.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../static/images/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=9">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=10">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)"
-          href="{{ url_for('static', filename='style/from480.css') }}?v=5">
+          href="{{ url_for('static', filename='style/from480.css') }}?v=6">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)"
-          href="{{ url_for('static', filename='style/from600.css') }}?v=5">
+          href="{{ url_for('static', filename='style/from600.css') }}?v=6">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)"
-          href="{{ url_for('static', filename='style/from840.css') }}?v=5">
+          href="{{ url_for('static', filename='style/from840.css') }}?v=6">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)"
-          href="{{ url_for('static', filename='style/from960.css') }}?v=9">
+          href="{{ url_for('static', filename='style/from960.css') }}?v=10">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)"
-          href="{{ url_for('static', filename='style/from1280.css') }}?v=5">
+          href="{{ url_for('static', filename='style/from1280.css') }}?v=6">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)"
-          href="{{ url_for('static', filename='style/from1440.css') }}?v=5">
+          href="{{ url_for('static', filename='style/from1440.css') }}?v=6">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)"
-          href="{{ url_for('static', filename='style/from1600.css') }}?v=5">
+          href="{{ url_for('static', filename='style/from1600.css') }}?v=6">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
     <script>
       const collectionData = {{ collectionDataJson|tojson }};
     </script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=5" defer></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=6" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 
