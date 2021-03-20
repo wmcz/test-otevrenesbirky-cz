@@ -5,33 +5,14 @@ html{
     font-size: 16px;
 }
 .collectionPlanet .collectionItems{
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
 }
 
 /* Collection Intro Space revealing */
 
-.revealTotalCount .collectionItems{
-    transform: none !important;
-}
-.revealTotalCount .showCollectionInfo,
-.revealTotalCount .onlineItems{
-    opacity: 0;
-}
 .revealTotalSize .showCollectionInfo{
     opacity: 0.25;
-}
-.revealTotalSize .onlineItems{
-    opacity: 0;
-}
-.revealOnlineSize .onlineItems{
-    opacity:1;
-}
-.hideTotal .totalItems{
-    transform: none !important;
-}
-.spaceChart.hideOnline .onlineItems{
-    transform: scale(0,0) !important;
 }
 
 /* Collection Intro Space revealing end */

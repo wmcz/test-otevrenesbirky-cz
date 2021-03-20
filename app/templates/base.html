@@ -4,21 +4,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=8">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=9">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)"
-          href="{{ url_for('static', filename='style/from480.css') }}?v=4">
+          href="{{ url_for('static', filename='style/from480.css') }}?v=5">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)"
-          href="{{ url_for('static', filename='style/from600.css') }}?v=4">
+          href="{{ url_for('static', filename='style/from600.css') }}?v=5">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)"
-          href="{{ url_for('static', filename='style/from840.css') }}?v=4">
+          href="{{ url_for('static', filename='style/from840.css') }}?v=5">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)"
-          href="{{ url_for('static', filename='style/from960.css') }}?v=8">
+          href="{{ url_for('static', filename='style/from960.css') }}?v=9">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)"
-          href="{{ url_for('static', filename='style/from1280.css') }}?v=4">
+          href="{{ url_for('static', filename='style/from1280.css') }}?v=5">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)"
-          href="{{ url_for('static', filename='style/from1440.css') }}?v=4">
+          href="{{ url_for('static', filename='style/from1440.css') }}?v=5">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)"
-          href="{{ url_for('static', filename='style/from1600.css') }}?v=4">
+          href="{{ url_for('static', filename='style/from1600.css') }}?v=5">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
@@ -49,18 +49,21 @@
     <div class="introScreens">
         <div class="introScreenBox">
             <article class="introScreen fadeIn" id="introScreen1">
+                <img src="../static/images/iconMuseum.svg" alt="Online Collection Museum Icon" class="introScreenImg">
                 <h2>{{museumsCount}} muzeí a galerií</h2>
                 <p class="subtitle">je zapsáno v registru sbírek Ministerstva kultury ČR</p>
             </article>
         </div>
         <div class="introScreenBox">
             <article class="introScreen" id="introScreen2">
+                <img src="../static/images/iconArtwork.svg" alt="Online Collection Artwork Icon" class="introScreenImg">
                 <h2>{{ "{:,}".format(totalItems).replace(',', ' ') }} předmětů</h2>
                 <p class="subtitle">uměleckých děl, historických artefaktů, technických památek nebo přírodních pozoruhodností se nachází ve sbírkách těchto institucí</p>
             </article>
         </div>
         <div class="introScreenBox">
             <article class="introScreen" id="introScreen3">
+                <img src="../static/images/iconOnlineArtwork.svg" alt="Online Collection Online Artwork Icon" class="introScreenImg">
                 <h2>{{ "{:,}".format(onlineItems).replace(',', ' ') }} předmětů je online</h2>
                 <p class="subtitle">Tedy přibližně {{(onlineItems/totalItems*100)|round(1,'common')}} % z celkového počtu si lze prohlédnout na internetu</p>
             </article>
@@ -72,6 +75,7 @@
         </div>
         <div class="introScreenBox">
             <article class="introScreen" id="introScreen5">
+                <img src="../static/images/iconVault.svg" alt="Online Collection Vault Icon" class="introScreenImg">
                 <h2>neseznámíte</h2>
                 <p class="subtitle">Zbývajících {{ "{:,}".format(totalItems - onlineItems).replace(',', ' ') }} předmětů je až na výjimky uschováno v&nbsp;nedostupných depozitářích</p>
             </article>
@@ -79,7 +83,7 @@
     </div>
 
     <div class="spaceChartCanvas" id="spaceChartCanvas">
-        <div id="spaceChart" class="spaceChart revealTotalCount hideOnline"></div>
+        <div id="spaceChart" class="spaceChart"></div>
     </div>
 
 </section>

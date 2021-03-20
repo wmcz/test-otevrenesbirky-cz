@@ -80,11 +80,6 @@ window.addEventListener('scroll', throttle(function () {
   elementFromTop(document.querySelectorAll('.introScreen'), 'fadeOut', 10, 'percent','addToSameElem' );
   elementFromTop(document.querySelectorAll('.scrollIcon'), 'fadeOut', 90, 'percent','addToSameElem' );
 
-  elementFromTop(document.querySelectorAll('#introScreen2'), 'revealTotalCount', 70, 'percent','removeFromStats' );
-  elementFromTop(document.querySelectorAll('#introScreen2'), 'revealTotalSize', 70, 'percent','addToStats' );
-  elementFromTop(document.querySelectorAll('#introScreen3'), 'hideOnline', 70, 'percent','removeFromStats' );
-  elementFromTop(document.querySelectorAll('#introScreen5'), 'hideTotal', 70, 'percent','addToStats' );
-
 }, 100), false);
 
 window.addEventListener('resize', debounce(function () {

@@ -117,6 +117,14 @@ strong{
     align-self: center;
     opacity:0;
     transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.introScreenImg{
+    width: 10rem;
+    margin-bottom: 1.125rem;
+    align-self: center;
 }
 .introScreen.fadeIn{
     opacity:1;
@@ -179,7 +187,7 @@ strong{
     transition: transform 0.5s ease;
 }
 .spaceChart .collectionPlanet .onlineItems{
-    opacity: 1;
+    opacity: 0.5;
 }
 .spaceChart .collectionPlanet .collectionName,
 .spaceChart .collectionPlanet .collectionInfo{

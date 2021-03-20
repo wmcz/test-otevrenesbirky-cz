@@ -24,8 +24,8 @@ def index():
     collectionDataJson = []
     for collection in collectionData:
         collectionDataJson.append({'Collection Name': collection[0],
-                                   'Total Items': int(collection[4]),
-                                   'Online Items': int(collection[5]),
+                                   'Total Items': int(collection[6]),
+                                   'Online Items': int(collection[7]),
                                    'Esbirky Url': collection[1],
                                    'Citem Url': collection[2],
                                    'Web Url': collection[3]})
