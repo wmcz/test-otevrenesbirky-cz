@@ -166,23 +166,27 @@ let displayColStats = (sortKey) => {
       }
     }
     let webUrl = getUrl();
-    let webLink
-    let createWebLink = () =>{
+    let collectionItem = () =>{
       if(webUrl !== undefined){
-        webLink = `<a href="${webUrl}" target="_blank" title="${museumName} | online katalog sbírkových prředmětů" class="collectionLink">Katalog</a>`
+        collectionItem = `
+        <a class='collectionPlanet linkAvailable' href="${webUrl}" target="_blank" title="${museumName} | online katalog sbírkových prředmětů">
+          <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize});'></span>
+          <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize});'></span>
+          <span class="collectionName">${museumName}</span>
+          <span class="collectionInfo"><strong>${onlineItemsString}</strong> z ${totalItemsString} předmětů je online</span>
+        </a>`;
+
       }else {
-        webLink = ""
+        collectionItem = `
+        <div class='collectionPlanet linkDisable'>
+          <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize});'></span>
+          <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize});'></span>
+          <span class="collectionName">${museumName}</span>
+          <span class="collectionInfo"><strong>${onlineItemsString}</strong> z ${totalItemsString} předmětů je online</span>
+        </div>`
       }
     }
-    createWebLink()
-
-    let collectionItem = `
-    <div class='collectionPlanet'>
-      <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize});'></span>
-      <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize});'></span>
-      <span class="collectionName">${museumName}</span>
-      <span class="collectionInfo"><strong>${onlineItemsString}</strong> z ${totalItemsString} předmětů je online ${webLink}</span>
-    </div>`;
+    collectionItem()
 
     htmlResult.push(collectionItem);
   }

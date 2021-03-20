@@ -313,6 +313,9 @@ strong{
     max-width: 600px;
     margin: 0 auto 0 auto;
 }
+.colSizeStats .collectionPlanet.linkDisable{
+    cursor: not-allowed;
+}
 .colSizeStats .collectionPlanet .collectionItems{
     align-self: center;
     display: none;
@@ -329,19 +332,6 @@ strong{
 .colSizeStats .collectionPlanet:hover .collectionName,
 .colSizeStats .collectionPlanet:hover .collectionInfo{
     opacity: 0.7;
-}
-.collectionLink{
-    display: inline-block;
-    margin-left: 1rem;
-    background: url("../images/iconArrrow.svg") center right no-repeat;
-    background-size: 1rem;
-    padding-right: 1rem;
-    color: #ffffff;
-    text-decoration: none;
-}
-.collectionLink:hover{
-    text-decoration: underline;
-    color: #ffffff;
 }
 
 /* Collection Size End */
