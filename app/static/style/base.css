@@ -241,6 +241,24 @@ strong{
 .mainTitle p {
     align-self: center;
 }
+.partners{
+    opacity: 0.5;
+    margin-top:5rem;
+}
+.partners p{
+    width: 100%;
+    text-align: center;
+}
+.partnersLogos{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+.partnersLogos img{
+    height: 3rem;
+    margin: 1rem;
+}
 
 /* Main Title End*/
 
