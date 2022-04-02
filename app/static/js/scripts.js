@@ -100,8 +100,8 @@ let displayChart = () => {
   for (collection = 0; collection < collectionsCount ; collection++) {
     let positionLeft = Math.ceil(Math.random()*canvasWidth);
     let positionTop = Math.ceil(Math.random()*canvasHeight);
-    let totalItems = collectionData[collection]['Total Items'];
-    let onlineItems = collectionData[collection]['Online Items'];
+    let totalItems = collectionData[collection]['Total 2021'];
+    let onlineItems = collectionData[collection]['Online 2021'];
     let totalItemsString = numberWithSpaces(totalItems);
     let onlineItemsString = numberWithSpaces(onlineItems);
     let totalSize = Math.ceil(Math.sqrt(totalItems/200));
@@ -149,20 +149,16 @@ let displayColStats = (sortKey) => {
   console.log(collectionData)
 
   for (collection = 0; collection < collectionsCount ; collection++) {
-    let totalItems = collectionData[collection]['Total Items'];
-    let onlineItems = collectionData[collection]['Online Items'];
+    let totalItems = collectionData[collection]['Total 2021'];
+    let onlineItems = collectionData[collection]['Online 2021'];
     let totalItemsString = numberWithSpaces(totalItems);
     let onlineItemsString = numberWithSpaces(onlineItems);
     let totalSize = Math.ceil(Math.sqrt(totalItems/1000));
     let onlineSize = Math.ceil(Math.sqrt(onlineItems/1000));
     let museumName = collectionData[collection]['Collection Name'];
     let getUrl = () =>{
-      if(collectionData[collection]['Web Url'] !== ""){
-        return collectionData[collection]['Web Url'];
-      }if(collectionData[collection]['Esbirky Url'] !== ""){
-        return collectionData[collection]['Esbirky Url'];
-      }if(collectionData[collection]['Citem Url'] !== ""){
-        return collectionData[collection]['Citem Url'];
+      if(collectionData[collection]['Catalog Url'] !== ""){
+        return collectionData[collection]['Catalog Url'];
       }
     }
     let webUrl = getUrl();
@@ -237,7 +233,7 @@ let toggleCollections = () => {
 
 window.onload = function(){
   displayChart();
-  displayColStats('Total Items');
+  displayColStats('Total 2021');
 }
 window.addEventListener("scroll", function () {
   parallax();
