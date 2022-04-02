@@ -3,6 +3,9 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 
+# Stáhne data o sbírkách z GoogleSheetu a vrátí strukturovaná data 2 formátováních
+# v objektu (collectionDataJson) a v poli (collectionDataList)
+
 def getSheetData(googleKeyPath):
 
     # Připojuje se k Google Sheetu s daty o sbírkách
