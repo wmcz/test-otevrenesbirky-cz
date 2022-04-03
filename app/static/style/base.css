@@ -7,7 +7,7 @@ html{
     line-height: 1.5;
     width: 100%;
     height: 100%;
-    background: #004445;
+    background: #931e44;
 }
 body{
     margin: 0;
@@ -49,13 +49,13 @@ p{
 a {
     color: #000000;
     text-decoration: underline;
-    text-decoration-color: #67c6bd;
+    text-decoration-color: #2C39AB;
 }
 a:hover{
-    color: #67c6bd;
+    color: #2C39AB;
 }
 strong{
-    background: #96e0d9;
+    background: #b3b9ff;
     font-weight: normal;
 }
 .buttonOutline{
@@ -79,13 +79,14 @@ strong{
 }
 .buttonOutline.active{
     background: rgba(255,255,255,0.25);
+    opacity: 1;
 }
 
 /* Main Intro */
 
 .mainIntro{
-    background: #004445;  /* fallback for old browsers */
-    background: linear-gradient(0deg, #2c7873, #004445); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1d2671;  /* fallback for old browsers */
+    background: linear-gradient(0deg, #931e44, #1d2671); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* Scroll Titles */
@@ -308,7 +309,7 @@ strong{
 /* Collection Size */
 
 .colSizeStatsFrame{
-    background: #004445;  /* fallback for old browsers */
+    background: #931e44;  /* fallback for old browsers */
     color: white;
 }
 .colSizeStatsFrame h2{
@@ -333,6 +334,7 @@ strong{
     flex-direction: column;
     max-width: 600px;
     margin: 0 auto 0 auto;
+    text-decoration-color: #ffffff;
 }
 .colSizeStats .collectionPlanet.linkDisable{
     cursor: not-allowed;
@@ -349,6 +351,7 @@ strong{
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+
 }
 .colSizeStats .collectionPlanet:hover .collectionName,
 .colSizeStats .collectionPlanet:hover .collectionInfo{
