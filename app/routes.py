@@ -20,6 +20,7 @@ def index():
         onlineItems += museum[config['currentYearOnlineKey']]
 
     return render_template('base.html',
+                           currentYear=config['currentYear'],
                            collectionDataJson=collectionDataJson,
                            museumsCount=museumsCount,
                            totalItems=totalItems,

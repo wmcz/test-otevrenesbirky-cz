@@ -1,3 +1,10 @@
+# Otevřené sbírky
+Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice
+
+Aplikace má 2 funkce:
+1. Stahuje data z centrální evidence sbírek muzejní povahy
+2. Vytváří prezentaci dostupnou na https://www.otevrenesbirky.cz/
+
 ## Jak přidat data za nový rok
 
 1. [Stáhněte aktuáldní data z CES online](#Stažení-dat-z-CES-online)
@@ -21,3 +28,6 @@ Nastavte hodnoty pro aktuální rok v **config.yaml** a do proměnných v horní
 
 ### Upravte statickou šablonu webu
 Upravte statickou šablonu webu v **app/templates/base.html**
+
+- Přidejte tlačítko s aktuálním rokem do navigace #switchColYear
+- Aktualizujte doprovodné grafy o souhrnná data z nového roku
