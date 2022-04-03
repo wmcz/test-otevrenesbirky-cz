@@ -18,7 +18,7 @@ def getSheetData(googleKeyPath):
     client = gspread.authorize(credential)
     gsheet = client.open_by_url('https://docs.google.com/spreadsheets/d/18CTrx1m21kPTpIAngnLwrDkI6YAKkTxw5Y781XyLmbo')
     worksheet = gsheet.get_worksheet(0)
-    rawCollectionData = worksheet.get('A1:K')
+    rawCollectionData = worksheet.get('A1:ZZ10000')
 
     # Konvertuje všechna čísla na integer
     collectionDataList = []
