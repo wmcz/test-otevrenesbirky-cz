@@ -1,0 +1,6 @@
+currentYear: 2022
+
+# Hodnoty musí odpovídat názvů sloupečků v Google Sheetu s daty o sbírkách
+currentYearTotalKey: Total 2022
+currentYearOnlineKey: Online 2022
+currentYearOpenKey: Open 2022
