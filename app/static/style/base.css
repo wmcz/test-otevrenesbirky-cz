@@ -283,6 +283,9 @@ strong{
     z-index: 20;
     position: relative;
 }
+.chapterSubmenu.yearSwitch{
+    padding-bottom: 1rem;
+}
 /* Chapters End */
 
 /* Charts */

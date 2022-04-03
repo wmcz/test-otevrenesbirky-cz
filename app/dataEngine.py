@@ -29,22 +29,16 @@ def getSheetData(googleKeyPath):
     # Připravuje Json
     collectionDataJson = []
     for collection in collectionDataList[1:]:
-        collectionDataJson.append({'Collection Name': collection[0],
-                                   'Catalog Url': collection[1],
-                                   'Total 2020': collection[2],
-                                   'Online 2020': collection[3],
-                                   'Open 2020': collection[4],
-                                   'Total 2021': collection[5],
-                                   'Online 2021': collection[6],
-                                   'Open 2021': collection[7],
-                                   'Total 2022': collection[8],
-                                   'Online 2022': collection[9],
-                                   'Open 2022': collection[10],
-                                   })
+        collectionItems = {}
+        for itemRank in range(len(collection)):
+            collectionItems[collectionDataList[0][itemRank]] = collection[itemRank]
+        collectionDataJson.append(collectionItems)
+
     return collectionDataJson, collectionDataList
 
 
 # Volání funkce níže je pouze pro účely testování
 # adresa k json klíči se liší z pohledu modulu dataEngine.py a z pohledu routes.py
 
-#getSheetData("../gcpKey.json")
+# print(getSheetData("../gcpKey.json")[0])
+# print(getSheetData("../gcpKey.json")[1])

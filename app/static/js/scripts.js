@@ -1,3 +1,42 @@
+// config
+
+let currentYear = 2022
+let currentYearTotalKey = "Total 2022"
+let currentYearOnlineKey = "Online 2022"
+let currentYearOpenKey = "Open 2022"
+
+// Get cookies
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+// Delete old cookies onload
+
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
+deleteAllCookies()
+
 // number with spaces
 
 function numberWithSpaces(x) {
@@ -100,8 +139,8 @@ let displayChart = () => {
   for (collection = 0; collection < collectionsCount ; collection++) {
     let positionLeft = Math.ceil(Math.random()*canvasWidth);
     let positionTop = Math.ceil(Math.random()*canvasHeight);
-    let totalItems = collectionData[collection]['Total 2021'];
-    let onlineItems = collectionData[collection]['Online 2021'];
+    let totalItems = collectionData[collection][currentYearTotalKey];
+    let onlineItems = collectionData[collection][currentYearOnlineKey];
     let totalItemsString = numberWithSpaces(totalItems);
     let onlineItemsString = numberWithSpaces(onlineItems);
     let totalSize = Math.ceil(Math.sqrt(totalItems/200));
@@ -136,21 +175,29 @@ let displayChart = () => {
   canvas.innerHTML = htmlResult.join("");
 }
 
-//* drawing collection stats
 
-let displayColStats = (sortKey) => {
+// drawing collection stats
+
+let displayColStats = (sortKey="Total", activeYear= currentYear) => {
   let canvas = document.getElementById('colSizeStats');
   let htmlResult = [];
+  if(getCookie("sortKey") !== ""){
+    sortKey = getCookie("sortKey");
+  }
+  if(getCookie("activeYear") !== ""){
+    activeYear = getCookie("activeYear");
+  }
+  console.log(sortKey)
+  console.log(activeYear)
 
   // sort by value
   collectionData.sort(function (a, b) {
-    return b[sortKey] - a[sortKey];
+    return b[sortKey + ' ' + activeYear] - a[sortKey + ' ' + activeYear];
   });
-  console.log(collectionData)
 
   for (collection = 0; collection < collectionsCount ; collection++) {
-    let totalItems = collectionData[collection]['Total 2021'];
-    let onlineItems = collectionData[collection]['Online 2021'];
+    let totalItems = collectionData[collection]['Total ' + activeYear];
+    let onlineItems = collectionData[collection]['Online ' + activeYear];
     let totalItemsString = numberWithSpaces(totalItems);
     let onlineItemsString = numberWithSpaces(onlineItems);
     let totalSize = Math.ceil(Math.sqrt(totalItems/1000));
@@ -165,7 +212,7 @@ let displayColStats = (sortKey) => {
     let collectionItem = () =>{
       if(webUrl !== undefined){
         collectionItem = `
-        <a class='collectionPlanet linkAvailable' href="${webUrl}" target="_blank" title="${museumName} | online katalog sbírkových prředmětů">
+        <a class='collectionPlanet linkAvailable' href="${webUrl}" target="_blank" title="${museumName} | online katalog sbírkových předmětů">
           <span class="totalItems collectionItems" style='transform: scale(${totalSize},${totalSize});'></span>
           <span class="onlineItems collectionItems" style='transform: scale(${onlineSize},${onlineSize});'></span>
           <span class="collectionName">${museumName}</span>
@@ -200,21 +247,22 @@ function parallax() {
 }
 
 // activated menu item
+// Add active class to the current button (highlight it)
 
-// Get the container element
-let btnContainer = document.getElementById("switchColOrder");
-
-// Get all buttons with class="btn" inside the container
-let btns = btnContainer.getElementsByClassName("jsButton");
-
-// Loop through the buttons and add the active class to the current/clicked button
-for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    let current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
+function toggleActive(classSelector) {
+  let buttons = document.querySelectorAll(classSelector);
+  console.log(buttons)
+  buttons.forEach(button => {
+      button.addEventListener('click', function () {
+          buttons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+      });
   });
 }
+toggleActive('.jsYearButton')
+toggleActive('.jsSortButton')
+
+
 
 // show and hide all collections
 let toggleCollections = () => {
@@ -233,7 +281,7 @@ let toggleCollections = () => {
 
 window.onload = function(){
   displayChart();
-  displayColStats('Total 2021');
+  displayColStats();
 }
 window.addEventListener("scroll", function () {
   parallax();

@@ -3,18 +3,21 @@ from flask import render_template, send_file, request
 import csv
 import os
 from app import dataEngine
+import yaml
 
 @app.route('/')
 def index():
+    with open(r'config.yaml') as configFile:
+        config = yaml.load(configFile, Loader=yaml.FullLoader)
     collectionDataJson = dataEngine.getSheetData("gcpKey.json")[0]
     museumsCount = 0
     totalItems = 0
     onlineItems = 0
     for museum in collectionDataJson:
-        if museum['Total 2021'] > 0:
+        if museum[config['currentYearTotalKey']] > 0:
             museumsCount += 1
-        totalItems += museum['Total 2021']
-        onlineItems += museum['Online 2021']
+        totalItems += museum[config['currentYearTotalKey']]
+        onlineItems += museum[config['currentYearOnlineKey']]
 
     return render_template('base.html',
                            collectionDataJson=collectionDataJson,
