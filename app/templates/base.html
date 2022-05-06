@@ -31,28 +31,28 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=11">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}?v=12">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)"
-          href="{{ url_for('static', filename='style/from480.css') }}?v=7">
+          href="{{ url_for('static', filename='style/from480.css') }}?v=12">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)"
-          href="{{ url_for('static', filename='style/from600.css') }}?v=7">
+          href="{{ url_for('static', filename='style/from600.css') }}?v=12">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)"
-          href="{{ url_for('static', filename='style/from840.css') }}?v=7">
+          href="{{ url_for('static', filename='style/from840.css') }}?v=12">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)"
-          href="{{ url_for('static', filename='style/from960.css') }}?v=11">
+          href="{{ url_for('static', filename='style/from960.css') }}?v=12">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)"
-          href="{{ url_for('static', filename='style/from1280.css') }}?v=7">
+          href="{{ url_for('static', filename='style/from1280.css') }}?v=12">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)"
-          href="{{ url_for('static', filename='style/from1440.css') }}?v=7">
+          href="{{ url_for('static', filename='style/from1440.css') }}?v=12">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)"
-          href="{{ url_for('static', filename='style/from1600.css') }}?v=7">
+          href="{{ url_for('static', filename='style/from1600.css') }}?v=12">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
     <script>
       const collectionData = {{ collectionDataJson|tojson }};
     </script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=6" defer></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}?v=12" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 </head>
@@ -119,10 +119,12 @@
     <p class="subtitle">Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</p>
     <p class="subtitle">{{currentYear}}</p>
     <div class="partners">
-        <p>Průzkum vznikl se záštitou</p>
+        <p>Průzkum vznikl s podporou</p>
         <div class="partnersLogos">
             <img src="../static/images/logoUmprum.svg" title="Vysoká škola uměleckoprůmyslová v Praze" alt="Vysoká škola uměleckoprůmyslová v Praze">
             <img src="../static/images/logoWiki.svg" title="Wikimedia Foundation, správce Wikipedie" alt="Wikimedia Foundation, správce Wikipedie">
+            <img src="../static/images/logoArtAntiques.svg" title="Art Antiques" alt="Art Antiques">
+            <img src="../static/images/logoArtalk.svg" title="Artalk" alt="Artalk">
         </div>
     </div>
 </section>
@@ -210,9 +212,10 @@
 
 <section class="storyChapter">
     <article class="chapterText">
-        <h2>Online je 2x více sbírkových předmětů než před rokem</h2>
-        <p class="subtitle">Zatímco v dubnu roku 2020 šlo na internetu zobrazit <strong>556 280</strong> muzejních artefaktů, o 12 měsíců později to je již <strong>{{ "{:,}".format(onlineItems).replace(',', ' ') }}</strong>. Tedy více než dvojnásobek.</p>
-        <p>Během roku pandemie se zvýšil také celkový počet registrovaných sbírkových předmětů i procentuální podíl online přístupných položek. Ten vzrostl z 2.9 % na {{(onlineItems/totalItems*100)|round(1,'common')}} %.</p>
+        <h2>Online přístupných předmětů je stále více, tempo se ale zpomaluje</h2>
+        <p class="subtitle">Na jaře 2021 šlo online zobrazit <strong>1 248 204</strong> muzejních artefaktů, o 12 měsíců později to je již <strong>{{ "{:,}".format(onlineItems).replace(',', ' ') }}</strong>. Tento <strong>11% nárůst</strong> je ale výrazně menší, než mezi lety 2020 a 2021, kdy se počet exponátů na internetu téměř zdvojnásobil. </p>
+        <p>Největší přírůstek ze sbírkotvorných institucí zaznamenalo od loňského vydání zprávy Národní muzeum, které do svého <a href="https://www.esbirky.cz/hledat/podrobne/vysledky?institution=17595" target="_blank">online katalogu eSbírky</a> zařadilo zhruba 100.000 nových položek. Jiné instituce naopak investovaly do prezentace sbírek ve vlastním online katalogu. Příkladem může být Oblastní galerie Vysočiny v Jihlavě, která na <a href="https://www.mgvysociny.cz/vismo/o_utvar.asp?id_org=450032&id_u=1040" target="_blank">svém webu</a> zpřístupnila téměř 100% ze svých 6555 sbírkových předmětů.</p>
+        <p>Během posledního roku se také zvýšil počet institucí, které publikují své exponáty online, o 11 nováčků; mimo jiné o <a href="https://www.esbirky.cz/hledat/podrobne/vysledky?institution=14001670" target="_blank">Alšovu jihočeskou galerii v Hluboké nad Vltavou</a>, <a href="https://www.esbirky.cz/hledat/instituce/37080016" target="_blank">Jihočeské muzeum</a> nebo <a href="https://pkd.kr-stredocesky.cz/search?fq%5B%5D=organizationsOwningDoc:%22Sl%C3%A1de%C4%8Dkovo%20vlastiv%C4%9Bdn%C3%A9%20muzeum%20v%20Kladn%C4%9B%22" target="_blank">Vlastivědné muzeum v Kladně</a>. </p>
     </article>
     <div class="basicChart chart">
         <canvas id="euCzComparison">
@@ -221,18 +224,18 @@
             // define the chart data
             var chartData = {
                 labels :
-                ['2021','2020'],
+                ['2022','2021','2020'],
                 datasets :
                 [
                     {
                         label: 'Předměty přístupné online',
                         backgroundColor: '#949FFF',
-                        data :[{{onlineItems}},556280],
+                        data :[{{onlineItems}},1248204,643894],
                     },
                     {
                         label: 'Předměty NEpřístupné online',
                         backgroundColor: '#000000',
-                        data :[{{totalItems}},18451672],
+                        data :[{{totalItems - onlineItems}},24127079,18025261],
                     }
                 ]
             }
@@ -263,53 +266,9 @@
     </div>
 </section>
 
-
-<!-- Digitalizované vs. přístupné -->
-
-<section class="storyChapter">
-    <article class="chapterText">
-        <h2>Digitalizovné není totéž co přístupné</h2>
-        <p class="subtitle">Digitalizováno je v ČR přibližně <strong>12.4%</strong> z celkového počtu sbírkových předmětů. Online přístupných je však <strong>pouze 40% z nich</strong>.</p>
-        <p>Ne každé dílo, které prošlo digitalizací, je zveřejněno na internetu. Většina digitálních reprodukcí je pouze uložena na veřejnosti nedostupných serverech a slouží jen interním potřebám dané instituce.</p>
-    </article>
-    <div class="basicChart chart">
-        <canvas id="czDigiVsOnline" style="display: block;">
-        <script>
-
-            // define the chart data
-            var chartData = {
-                labels:
-                    ['Online přístupná díla (%)', 'Digitalizovaná neveřejná díla (%)', 'Nedigitalizovaná díla (%)'],
-                datasets:
-                    [
-                        {
-                            label: ' Podíl (%) evropských muzeí využívající daný online kanál ke zpřístupňování sbírek',
-                            backgroundColor: ['#949FFF', '#3E4FED', '#000000'],
-                            data: [4.9, 7.5, 87.6],
-                            maxBarThickness: 20,
-                        }
-                    ]
-            }
-
-            // get chart canvas
-            var ctx = document.getElementById("czDigiVsOnline").getContext("2d");
-
-            // create the chart using the chart canvas
-
-            var allCzCollections = new Chart(ctx, {
-                type: 'pie',
-                data: chartData,
-                options: {
-                    aspectRatio: 1,
-                }
-            });
-        </script>
-        </canvas>
-    </div>
-    </div>
-</section>
-
 <!-- Jak se sbírky zpřístupňují -->
+
+<!--
 
 <section class="storyChapter">
     <article class="chapterText">
@@ -350,13 +309,15 @@
     </div>
 </section>
 
-<!-- Co brání otevřenému přístupu -->
+-->
+
+<!-- Posun k lepšímu -->
 
 <section class="storyChapter">
     <article class="chapterText">
-        <h2>Co brání otevřenému přístupu ke sbírkám</h2>
-        <p class="subtitle"><strong>65&nbsp;domácích institucí</strong> nám odpovědělo na otázku „S&nbsp;jakými problémy se potýkáte při procesu digitalizace sbírkových předmětů a jejich zveřejnění?</p>
-        <p>Proč je jen mizivé procento kulturních artefaktů dostupné online? Co stojí za smutným výsledkem? Jak to, že veřejné organizace nevyužívají současné technologie, aby co nejvíce zpřístupnily uchovávané bohatství?</p>
+        <h2>64% muzeí zaznamenalo zlepšení podmínek pro digitalizaci sbírek</h2>
+        <p class="subtitle"><strong>47 ze 73 institucí</strong>, které nám vyplnily dotazník, považuje aktuální situaci ohledně digitalizace za <strong>lepší, než byla před začátkem pandemie</strong>. Naopak žádný posun během posledních dvou let nezaznamenalo 23 muzeí.</p>
+        <p>Mezi nejčastěji zmiňované pozitivní změny patří posun v prioritách u vedení nebo zřizovatele (26% institucí), větší povědomí o přínosech digitalizace (19%), lepší možnosti financování (21%) a kvalitnější zázemí v oblasti technologií a lidských zdrojů (19%).</p>
     </article>
 
     <div class="extendedChart chart">
@@ -381,13 +342,13 @@
             // define the chart data
             var chartData = {
                 labels:
-                    ['Organizační náročnost', 'Nedostatek financí', 'Nedostatek technických znalostí', 'Nedostatek personálu','Autorská práva', 'Odlišné priority vedení či zřizovatele', 'Nízké povědomí o přínosech'],
+                    ['Žádné zlepšení', 'Vyšší priorita digitalizace u vedení', 'Větší povědomí o přínosech digitalizace', 'Více možností financování','Lepší zázemí pro digitalizaci'],
                 datasets:
                     [
                         {
-                            label: ' Podíl (%) muzeí v ČR, která se setkávají s daným problémem při zpřístupňování sbírek online',
+                            label: ' Podíl (%) muzeí v ČR, která vidí zlepšení v dané oblasti',
                             backgroundColor: '#000000',
-                            data: [64.9, 45.6, 33.4, 18, 14, 12.3, 7],
+                            data: [31.5, 26.0, 21.9, 20.5, 19.2],
                             maxBarThickness: 20,
                         }
                     ]
@@ -408,14 +369,60 @@
 
 </section>
 
-<!-- Copyright zabraňuje otevírání sbírek -->
+<!-- Digitalizované vs. přístupné -->
 
 <section class="storyChapter">
     <article class="chapterText">
-        <h2>Copyright zabraňuje otevírání sbírek</h2>
-        <p class="subtitle"><strong>Autorská práva</strong> jsou zřejmě nejzajímavější z výše uvedených překážek. Už jen z toho důvodu, že toto <strong>omezení vyplývá z celospolečenských legislativních norem</strong>, a tak je z pohledu jednotlivých organizací nejhůře řešitelné.</p>
-        <p>Nejedná-li se o <a href="https://cs.wikipedia.org/wiki/Voln%C3%A9_d%C3%ADlo" target="_blank">volné dílo</a> (u nějž uplynulo 70 let od smrti jeho autora), musí muzeum pro jeho zveřejnění disponovat potřebnou <strong>licencí od držitele majetkových práv</strong>. Získávání takového oprávnění však bývá náročný proces, který může představovat významnou překážku otevírání sbírek. Ani publikace díla online však sama o sobě neznamená, že je možné reprodukci dále využívat. K tomu je nutné, aby bylo na stránce uvedeno, že je dílo dostupné pod <a href="https://creativecommons.org/licenses/" target="_blank">otevřenou licencí</a>. Zmínku o licenčních podmínkách však ve svých katalozích uvádějí jen některá domácí muzea.</p>
-        <p>Podíl typů licencí u digitalizovaných sbírkových předmětů v držení evropských muzeí:</p>
+        <h2>Pouze 36% digitalizovaných děl je přístupných online</h2>
+        <p class="subtitle">Digitalizovné není totéž co přístupné. <strong>Digitalizováno je v ČR přibližně 14.5% z celkového počtu sbírkových předmětů</strong>. Online přístupných je však pouze 36% z nich.</p>
+        <p>Ne každé dílo, které prošlo digitalizací, je zveřejněno na internetu. Většina digitálních reprodukcí je pouze uložena na veřejnosti nedostupných serverech a slouží jen interním potřebám dané instituce.</p>
+    </article>
+    <div class="basicChart chart">
+        <canvas id="czDigiVsOnline" style="display: block;">
+        <script>
+
+            // define the chart data
+            var chartData = {
+                labels:
+                    ['Online přístupná díla (%)', 'Digitalizovaná neveřejná díla (%)', 'Nedigitalizovaná díla (%)'],
+                datasets:
+                    [
+                        {
+                            label: ' Podíl (%) evropských muzeí využívající daný online kanál ke zpřístupňování sbírek',
+                            backgroundColor: ['#949FFF', '#3E4FED', '#000000'],
+                            data: [5.3, 9.2, 85.5],
+                            maxBarThickness: 20,
+                        }
+                    ]
+            }
+
+            // get chart canvas
+            var ctx = document.getElementById("czDigiVsOnline").getContext("2d");
+
+            // create the chart using the chart canvas
+
+            var allCzCollections = new Chart(ctx, {
+                type: 'pie',
+                data: chartData,
+                options: {
+                    aspectRatio: 1,
+                }
+            });
+        </script>
+        </canvas>
+    </div>
+    </div>
+</section>
+
+<!-- Volná díla -->
+
+<section class="storyChapter">
+    <article class="chapterText">
+        <h2>Nejméně 31% sbírek tvoří volná díla</h2>
+        <p class="subtitle">Jedná se přibližně o <strong>osm milionů děl vytvořených před rokem 1900</strong>, u kterých lze s velkou mírou jistoty předpokládat, že již uplynulo 70 let od smrti autora. Takové exponáty mohou být dle autorského zákona <strong>libovolně reprodukovány a publikovány</strong>.</p>
+        <p>U zbývajících 69% sbírkových předmětů patří <strong>autorská práva mezi nejvýznamnější překážky</strong> v online publikaci. Už jen z toho důvodu, že toto omezení vyplývá z celospolečenských legislativních norem a mezinárodních smluv, a tak je z pohledu jednotlivých organizací nejhůře řešitelné. Nejedná-li se o <a href="https://cs.wikipedia.org/wiki/Voln%C3%A9_d%C3%ADlo" target="_blank">volné dílo</a>, musí muzeum pro jeho zveřejnění disponovat potřebnou licencí od držitele majetkových práv. Získávání takového oprávnění však bývá náročný proces, který může představovat významnou překážku otevírání sbírek.</p>
+        <p>Ani publikace díla online však sama o sobě neznamená, že je možné reprodukci dále využívat. K tomu je nutné, aby bylo na stránce uvedeno, že je dílo dostupné pod <a href="https://creativecommons.org/licenses/" target="_blank">otevřenou licencí</a>.</p>
+        <p>Podíl volných děl v celkovém objemu muzejních sbírek:</p>
     </article>
     <div class="basicChart chart">
         <canvas id="euLicence" style="display: block;">
@@ -424,13 +431,13 @@
             // define the chart data
             var chartData = {
                 labels:
-                    ['Volná díla', 'Muzeum je vlastníkem licence', 'Třetí strana je vlastníkem licence', 'Neznámý stav'],
+                    ['Volná díla', 'Díla chráněná majetkovými právy'],
                 datasets:
                     [
                         {
-                            label: ' Podíl (%) evropských muzeí využívající daný online kanál ke zpřístupňování sbírek',
-                            backgroundColor: ['#949FFF', '#3E4FED', '#1D2671', '#000000'],
-                            data: [33, 43, 12, 13],
+                            label: ' Podíl (%) děl ve sbírkách',
+                            backgroundColor: ['#949FFF', '#000000'],
+                            data: [31, 69],
                             maxBarThickness: 20,
                         }
                     ]
@@ -487,20 +494,20 @@
         <p>Ve třetím jmenovaném případě byl za online katalog považován takový web, který strukturovaně zobrazoval jednotlivé kulturní artefakty včetně jejich obrázků i popisů a který nabízel nástroje k jejich vyhledávání či systematickému procházení. </p>
         <p>Některé instituce zpřístupňují digitalizované artefakty více cestami zároveň (například v portálu eSbírky a ve vlastním online katalogu). V takové situaci byl započítán katalog s větším počtem položek, nikoliv součet položek z obou zdrojů. Důvodem pro to byl namátkově ověřený předpoklad, že se v katalogu s menším rozsahem objevují pouze takové artefakty, které jsou rovněž zahrnuty ve větším katalogu. Ze stejného důvodu nebyla do průzkumu zahrnuta data českých institucí z portálů Europeana Collections a Wikimedia Commons, které, oproti výše uvedeným zdrojům, obsahují nižší počty zastoupených artefaktů.</p>
         <p>Ve většině případů bylo možné z online katalogů získat informaci o počtu obsažených digitalizovaných artefaktů spadajících pod danou instituci. V případě portálu CITeM však katalog nerozlišuje položky s digitální reprodukcí a bez ní, což znejasňuje reálný počet online zpřístupněných artefaktů. V tomto případě jsme tedy použili statistický odhad celkového rozsahu na základě menšího vzorku náhodně vybraných položek.</p>
-        <p>Dalším významným zdrojem dat byly dotazníky, které vyplnily jednotlivé instituce. Během průzkumu jsme oslovili veškerá muzea registrovaná v CES (přibližně 400) a odpovědi nám zaslalo 65 z nich. Tyto informace nám pomohly ke korekci dat (informace pocházející přímo od muzeí jsme brali jako důvěryhodnější než informace z výše uvedených zdrojů) a ke statistickému odhadu podílu digitalizovaných, avšak online nepřístupných děl. Stejně tak jsme na tomto základě zjistili největší problémy, které brání institucím v zpřístupňování sbírek.</p>
+        <p>Dalším významným zdrojem dat byly dotazníky, které vyplnily jednotlivé instituce. Během průzkumu jsme oslovili veškerá muzea registrovaná v CES (přibližně 400) a odpovědi nám zaslalo 73 z nich. Tyto informace nám pomohly ke korekci dat (informace pocházející přímo od muzeí jsme brali jako důvěryhodnější než informace z výše uvedených zdrojů) a ke statistickému odhadu podílu digitalizovaných, avšak online nepřístupných děl.</p>
         <p>Pro rozšíření úhlu pohledu jsme data z českého prostředí doplnili o vybrané související údaje v evropském kontextu. Tyto informace byly převzaty ze zdrojů:</p>
         <ol>
             <li><a href="https://ec.europa.eu/eurostat/documents/3217494/10177894/KS-01-19-712-EN-N.pdf/915f828b-daae-1cca-ba54-a87e90d6b68b" target="_blank">Eurostat Culture Statistics 2019</a></li>
             <li><a href="https://pro.europeana.eu/post/europeana-strategy-2020-2025-empowering-digital-change?fbclid=IwAR2I4EA95sWFayNxR_t21PcGWEVcxFb5r-MwDuSPDkyPr6ntSVBfltoATs0" target="_blank">Europeana strategy 2020-2025: Empowering digital change</a></li>
             <li><a href="https://pro.europeana.eu/files/Europeana_Professional/Projects/Project_list/ENUMERATE/deliverables/DSI-2_Deliverable%20D4.4_Europeana_Report%20on%20ENUMERATE%20Core%20Survey%204.pdf" target="_blank">Europeana DSI 2– Access to Digital Resources of European Heritage</a></li>
         </ol>
-        <p>Vzhledem k velkému množství zdrojů, které bylo nutné zpracovat, jsme mohli některý katalog či jeho část opomenout. Budeme rádi, když nás v takovém případě upozorníte.</p>
+        <p>Vzhledem k velkému množství zdrojů, které bylo nutné zpracovat, jsme mohli některý katalog či jeho část opomenout. Budeme rádi, když nás v takovém případě upozorníte na email <a href="mailto:otevrenesbirky@gmail.com">otevrenesbirky@gmail.com</a></p>
         <br><br>
-        <p><a href="/downloaddata">Stáhnout data ve formátu .csv</a><br>Dataset obsahuje seznam všech institucí, jejichž sbírky jsou registrovány v Centrální evidenci sbírek MK ČR. U každé instituce je k dispozici odkaz na online katalog, údaje o celkové velikosti sbírek, počet online přístupných artefaktů a počet artefaktů zpřístupněných pod otevřenou licencí.</p>
+        <p><a href="/static/openCollections.csv">Stáhnout data ve formátu .csv</a><br>Dataset obsahuje seznam všech institucí, jejichž sbírky jsou registrovány v Centrální evidenci sbírek MK ČR. U každé instituce je k dispozici odkaz na online katalog, údaje o celkové velikosti sbírek, počet online přístupných artefaktů a počet artefaktů zpřístupněných pod otevřenou licencí. Data jsou rozdělena dle jednotlivých let. </p>
         <!--<p><a href="/static/downloads/TZ-otevrene-sbirky.pdf">Stáhnout tiskovou zprávu</a></p>-->
         <br><br>
-        <p>Průzkum vznikl se záštitou Centra doktorských studií UMPRUM, rektora Vysoké školy uměleckprůmyslové v Praze a Wikimedia Foundation Česká republika.</p>
-        <p><a href="http://lukaspilka.cz/" target="_blank">Lukáš Pilka</a> a <a href="mailto: tereza.skvarova@gmail.com">Tereza Škvárová</a>, {{currentYear}}</p>
+        <p>Průzkum vznikl se záštitou Centra doktorských studií UMPRUM, rektora Vysoké školy uměleckoprůmyslové v Praze a Wikimedia Česká republika. Za mediální podporu děkujeme Art+Antiques a Artalk.cz.</p>
+        <p><a href="http://lukaspilka.cz/" target="_blank">Lukáš Pilka</a> a <a href="mailto: tereza.skvarova@gmail.com">Tereza Škvárová</a>, Eva Andrejsová a Vojtěch Dostál, {{currentYear}}</p>
     </article>
 </footer>
 
