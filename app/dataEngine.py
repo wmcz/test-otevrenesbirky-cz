@@ -6,7 +6,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 # Stáhne data o sbírkách z GoogleSheetu a vrátí strukturovaná data 2 formátováních
 # v objektu (collectionDataJson) a v poli (collectionDataList)
 
-def getSheetData(googleKeyPath):
+def getSheetData(googleKeyPath, googleSheetUrl):
 
     # Připojuje se k Google Sheetu s daty o sbírkách
     credential = ServiceAccountCredentials.from_json_keyfile_name(googleKeyPath,
@@ -16,7 +16,7 @@ def getSheetData(googleKeyPath):
                                                                    "https://www.googleapis.com/auth/drive"])
 
     client = gspread.authorize(credential)
-    gsheet = client.open_by_url('https://docs.google.com/spreadsheets/d/18CTrx1m21kPTpIAngnLwrDkI6YAKkTxw5Y781XyLmbo')
+    gsheet = client.open_by_url(googleSheetUrl)
     worksheet = gsheet.get_worksheet(0)
     rawCollectionData = worksheet.get('A1:ZZ10000')
 

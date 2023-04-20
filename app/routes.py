@@ -9,7 +9,7 @@ import yaml
 def index():
     with open(r'config.yaml') as configFile:
         config = yaml.load(configFile, Loader=yaml.FullLoader)
-    collectionDataJson = dataEngine.getSheetData("gcpKey.json")[0]
+    collectionDataJson = dataEngine.getSheetData("gcpKey.json", config['gsheetUrl'])[0]
     museumsCount = 0
     totalItems = 0
     onlineItems = 0
@@ -28,7 +28,7 @@ def index():
 
 @app.route('/downloaddata')
 def downloaddata ():
-    collectionDataList = dataEngine.getSheetData("gcpKey.json")[1]
+    collectionDataList = dataEngine.getSheetData("gcpKey.json", config['gsheetUrl'])[1]
     with open('app/static/openCollections.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         for collection in collectionDataList:
