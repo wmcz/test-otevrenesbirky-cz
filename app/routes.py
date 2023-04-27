@@ -28,10 +28,17 @@ def index():
 
 @app.route('/downloaddata')
 def downloaddata ():
-    collectionDataList = dataEngine.getSheetData("gcpKey.json", config['gsheetUrl'])[1]
-    with open('app/static/openCollections.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        for collection in collectionDataList:
-            writer.writerow(collection)
     path = "static/openCollections.csv"
+    full_path = os.path.join('app', path)
+
+    if not os.path.isfile(full_path):
+        with open(r'config.yaml') as configFile:
+            config = yaml.load(configFile, Loader=yaml.FullLoader)
+
+        collectionDataList = dataEngine.getSheetData("gcpKey.json", config['gsheetUrl'])[1]
+        with open(full_path, 'w', newline='') as file:
+            writer = csv.writer(file)
+            for collection in collectionDataList:
+                writer.writerow(collection)
+
     return send_file(path, as_attachment=True)
