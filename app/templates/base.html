@@ -137,6 +137,7 @@
         <p class="subtitle">Porovnejte si velikosti fyzických sbírek a počet online publikovaných reprodukcí</p>
     </article>
     <nav class="chapterSubmenu yearSwitch" id="switchColYear">
+        <a onclick="document.cookie='activeYear=2023'; displayColStats();" class="buttonOutline jsYearButton active">2023</a>
         <a onclick="document.cookie='activeYear=2022'; displayColStats();" class="buttonOutline jsYearButton active">2022</a>
         <a onclick="document.cookie='activeYear=2021'; displayColStats();" class="buttonOutline jsYearButton">2021</a>
         <a onclick="document.cookie='activeYear=2020'; displayColStats();" class="buttonOutline jsYearButton">2020</a>
@@ -224,18 +225,18 @@
             // define the chart data
             var chartData = {
                 labels :
-                ['2022','2021','2020'],
+                ['2023','2022','2021','2020'],
                 datasets :
                 [
                     {
                         label: 'Předměty přístupné online',
                         backgroundColor: '#949FFF',
-                        data :[{{onlineItems}},1248204,643894],
+                        data :[{{onlineItems}},1377522,1248204,643894],
                     },
                     {
                         label: 'Předměty NEpřístupné online',
                         backgroundColor: '#000000',
-                        data :[{{totalItems - onlineItems}},24127079,18025261],
+                        data :[{{totalItems - onlineItems}},25003371,24127079,18025261],
                     }
                 ]
             }
