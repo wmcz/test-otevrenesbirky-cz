@@ -28,6 +28,8 @@ def index():
 
 @app.route('/downloaddata')
 def downloaddata ():
+    with open(r'config.yaml') as configFile:
+        config = yaml.load(configFile, Loader=yaml.FullLoader)
     collectionDataList = dataEngine.getSheetData("gcpKey.json", config['gsheetUrl'])[1]
     with open('app/static/openCollections.csv', 'w', newline='') as file:
         writer = csv.writer(file)
