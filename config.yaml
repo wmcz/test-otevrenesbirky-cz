@@ -3,6 +3,6 @@ currentYear: 2023
 # Hodnoty musí odpovídat názvů sloupečků v Google Sheetu s daty o sbírkách
 currentYearTotalKey: Total 2023
 currentYearOnlineKey: Online 2023
-currentYearOpenKey: Open 2022
+currentYearOpenKey: Open 2023
 
 gsheetUrl: https://docs.google.com/spreadsheets/d/1YYT9T9f2ybxyIMM97tesrVLeE9r6JUnObVzvbHuWo3k
