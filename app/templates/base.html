@@ -161,54 +161,6 @@
         <p class="subtitle">Sbírkové předměty publikované online jsou dostupnější, přehlednější a lépe přístupné pro <strong>učitele, badatele, umělce, designéry i širokou veřejnost</strong></p>
         <p>Naleznou uplatnění při vzdělávání, výzkumu nebo v kreativním průmyslu; ať už se jedná o film, divadlo nebo architekturu, při tvorbě různorodých publikací či v disciplínách, jako je design počítačových her a digitálních prezentací. Zpřístupnění reprodukcí online má pozitivní vliv i na samotný artefakt; jeho potenciál pro vystavení i probádání je mnohem větší než u nereprodukovaných děl. Navíc se snižuje manipulace s cennými originály, a tím i míra jejich opotřebení. Je tedy možné říct, že čím více digitálních reprodukcí bude dostupných online, tím lépe. A není třeba se bát, že by se tím snížila návštěvnost muzeí a galerií.</p>
     </article>
-
-    <div class="extendedChart chart">
-        <canvas id="euCollectionsUse" style="display: block;">
-        <script>
-            // Global parameters for all charts:
-            Chart.defaults.global.responsive = false;
-            Chart.defaults.global.defaultFontColor = '#000000';
-            Chart.defaults.global.defaultFontSize = 16;
-            Chart.defaults.global.defaultFontFamily = "'Montserrat', sans-serif";
-            Chart.defaults.global.tooltips.backgroundColor = "#000000";
-            Chart.defaults.global.tooltips.titleFontSize = 16;
-            Chart.defaults.global.tooltips.bodyFontSize = 16;
-            Chart.defaults.global.tooltips.cornerRadius = 0;
-            Chart.defaults.global.tooltips.xPadding = 20;
-            Chart.defaults.global.tooltips.yPadding = 20;
-            Chart.defaults.global.tooltips.borderColor = '#ffffff';
-            Chart.defaults.global.tooltips.borderWidth = 1;
-            Chart.defaults.scale.gridLines.color = '#000000';
-            Chart.defaults.scale.ticks.beginAtZero = true;
-
-            // define the chart data
-            var chartData = {
-                labels:
-                    ['Využití při výzkumu', 'Využití ve vzdělávání', 'Snižuje opotřebení fyzických originálů', 'Osobní potěšení', 'Kreativní využití', 'Ideologické nebo náboženské užití', 'Ostatní využití', 'Obchodní nebo komerční využití'],
-                datasets:
-                    [
-                        {
-                            label: ' Podíl (%) představitelů evropských muzeí uvádějících vybrané přínosy online sbírek',
-                            backgroundColor: '#000000',
-                            data: [88, 85, 76, 63, 53, 47, 46, 27],
-                            maxBarThickness: 20,
-                        }
-                    ]
-            }
-
-            // get chart canvas
-            var ctx = document.getElementById("euCollectionsUse").getContext("2d");
-
-            // create the chart using the chart canvas
-
-            var allCzCollections = new Chart(ctx, {
-                type: 'horizontalBar',
-                data: chartData,
-            });
-        </script>
-    </canvas>
-    </div>
-
 </section>
 
 <!-- Meziroční srovnání -->
