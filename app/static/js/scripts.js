@@ -1,9 +1,9 @@
 // config
 
-let currentYear = 2022
-let currentYearTotalKey = "Total 2022"
-let currentYearOnlineKey = "Online 2022"
-let currentYearOpenKey = "Open 2022"
+let currentYear = 2023
+let currentYearTotalKey = "Total 2023"
+let currentYearOnlineKey = "Online 2023"
+let currentYearOpenKey = "Open 2023"
 
 // Get cookies
 

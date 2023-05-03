@@ -244,9 +244,14 @@ strong{
 .mainTitle p {
     align-self: center;
 }
+.wmcz-logo {
+    width: 200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
 .partners{
     opacity: 0.5;
-    margin-top:5rem;
+    margin-top:0rem;
 }
 .partners p{
     width: 100%;

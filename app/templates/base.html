@@ -58,6 +58,25 @@
 </head>
 <body>
 
+<!-- Main Title -->
+
+<section class="mainTitle">
+    <img class="wmcz-logo" src="../static/images/logoWiki.svg" title="Wikimedia Česká republika" alt="Wikimedia Česká republika">
+
+    <h1>Otevřené sbírky</h1>
+    <p class="subtitle">Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</p>
+    <p class="subtitle">{{currentYear}}</p>
+    <div class="partners">
+        <p>Projekt je realizován pod záštitou Ministerstva kultury, Vysoké školy uměleckoprůmyslové v Praze, Art&Antiques a Artalk.</p>
+        <div class="partnersLogos">
+            <img src="../static/images/logoUmprum.svg" title="Vysoká škola uměleckoprůmyslová v Praze" alt="Vysoká škola uměleckoprůmyslová v Praze">
+            <img src="../static/images/logoMkcr.svg" title="Ministerstvo kultury České republiky" alt="Ministerstvo kultury České republiky">
+            <img src="../static/images/logoArtAntiques.svg" title="Art Antiques" alt="Art Antiques">
+            <img src="../static/images/logoArtalk.png" title="Artalk" alt="Artalk">
+        </div>
+    </div>
+</section>
+
 <!-- Main intro -->
 
 <section class="mainIntro">
@@ -112,23 +131,6 @@
 
 </section>
 
-<!-- Main Title -->
-
-<section class="mainTitle">
-    <h1>Otevřené sbírky</h1>
-    <p class="subtitle">Zpráva o digitalizaci a zpřístupňování kulturního dědictví v České republice</p>
-    <p class="subtitle">{{currentYear}}</p>
-    <div class="partners">
-        <p>Průzkum vznikl s podporou</p>
-        <div class="partnersLogos">
-            <img src="../static/images/logoUmprum.svg" title="Vysoká škola uměleckoprůmyslová v Praze" alt="Vysoká škola uměleckoprůmyslová v Praze">
-            <img src="../static/images/logoWiki.svg" title="Wikimedia Foundation, správce Wikipedie" alt="Wikimedia Foundation, správce Wikipedie">
-            <img src="../static/images/logoArtAntiques.svg" title="Art Antiques" alt="Art Antiques">
-            <img src="../static/images/logoArtalk.svg" title="Artalk" alt="Artalk">
-        </div>
-    </div>
-</section>
-
 <!-- Stats Section -->
 
 <section class="colSizeStatsFrame storyChapter">
@@ -137,7 +139,8 @@
         <p class="subtitle">Porovnejte si velikosti fyzických sbírek a počet online publikovaných reprodukcí</p>
     </article>
     <nav class="chapterSubmenu yearSwitch" id="switchColYear">
-        <a onclick="document.cookie='activeYear=2022'; displayColStats();" class="buttonOutline jsYearButton active">2022</a>
+        <a onclick="document.cookie='activeYear=2023'; displayColStats();" class="buttonOutline jsYearButton active">2023</a>
+        <a onclick="document.cookie='activeYear=2022'; displayColStats();" class="buttonOutline jsYearButton">2022</a>
         <a onclick="document.cookie='activeYear=2021'; displayColStats();" class="buttonOutline jsYearButton">2021</a>
         <a onclick="document.cookie='activeYear=2020'; displayColStats();" class="buttonOutline jsYearButton">2020</a>
     </nav>
@@ -159,7 +162,7 @@
         <p>Naleznou uplatnění při vzdělávání, výzkumu nebo v kreativním průmyslu; ať už se jedná o film, divadlo nebo architekturu, při tvorbě různorodých publikací či v disciplínách, jako je design počítačových her a digitálních prezentací. Zpřístupnění reprodukcí online má pozitivní vliv i na samotný artefakt; jeho potenciál pro vystavení i probádání je mnohem větší než u nereprodukovaných děl. Navíc se snižuje manipulace s cennými originály, a tím i míra jejich opotřebení. Je tedy možné říct, že čím více digitálních reprodukcí bude dostupných online, tím lépe. A není třeba se bát, že by se tím snížila návštěvnost muzeí a galerií.</p>
     </article>
 
-    <div class="extendedChart chart">
+    <div class="extendedChart chart" style="display: none;">
         <canvas id="euCollectionsUse" style="display: block;">
         <script>
             // Global parameters for all charts:
@@ -212,10 +215,10 @@
 
 <section class="storyChapter">
     <article class="chapterText">
-        <h2>Online přístupných předmětů je stále více, tempo se ale zpomaluje</h2>
-        <p class="subtitle">Na jaře 2021 šlo online zobrazit <strong>1 248 204</strong> muzejních artefaktů, o 12 měsíců později to je již <strong>{{ "{:,}".format(onlineItems).replace(',', ' ') }}</strong>. Tento <strong>11% nárůst</strong> je ale výrazně menší, než mezi lety 2020 a 2021, kdy se počet exponátů na internetu téměř zdvojnásobil. </p>
-        <p>Největší přírůstek ze sbírkotvorných institucí zaznamenalo od loňského vydání zprávy Národní muzeum, které do svého <a href="https://www.esbirky.cz/hledat/podrobne/vysledky?institution=17595" target="_blank">online katalogu eSbírky</a> zařadilo zhruba 100.000 nových položek. Jiné instituce naopak investovaly do prezentace sbírek ve vlastním online katalogu. Příkladem může být Oblastní galerie Vysočiny v Jihlavě, která na <a href="https://www.mgvysociny.cz/vismo/o_utvar.asp?id_org=450032&id_u=1040" target="_blank">svém webu</a> zpřístupnila téměř 100% ze svých 6555 sbírkových předmětů.</p>
-        <p>Během posledního roku se také zvýšil počet institucí, které publikují své exponáty online, o 11 nováčků; mimo jiné o <a href="https://www.esbirky.cz/hledat/podrobne/vysledky?institution=14001670" target="_blank">Alšovu jihočeskou galerii v Hluboké nad Vltavou</a>, <a href="https://www.esbirky.cz/hledat/instituce/37080016" target="_blank">Jihočeské muzeum</a> nebo <a href="https://pkd.kr-stredocesky.cz/search?fq%5B%5D=organizationsOwningDoc:%22Sl%C3%A1de%C4%8Dkovo%20vlastiv%C4%9Bdn%C3%A9%20muzeum%20v%20Kladn%C4%9B%22" target="_blank">Vlastivědné muzeum v Kladně</a>. </p>
+        <h2>Online přístupných předmětů je stále více. Od loňského roku se zapojilo 33 nových institucí.</h2>
+        <p class="subtitle">Na jaře 2022 šlo online zobrazit <strong>1 377 522</strong> muzejních artefaktů, o 12 měsíců později to je již <strong>{{ "{:,}".format(onlineItems).replace(',', ' ') }}</strong>. Tento <strong>35% nárůst</strong> je výrazně větší, než minulý rok, kdy došlo pouze k 11% nárůstu. </p>
+        <p>Největší přírůstek ze sbírkotvorných institucí zaznamenalo od loňského vydání zprávy Valašské muzeum v přírodě v Rožnově pod Radhoštěm, které do svého <a href="https://vademecum.vmp.cz/vademecum/" target="_blank">online katalogu </a> zařadilo 141.939 nových položek. Jiné instituce naopak investovaly do prezentace sbírek v portálu Esbírky. Příkladem může být Městské muzeum a galerie v Hranicích, která se chystá spřístupnit své sbírky na tomto portále v příštím roce. Oblastní galerie Vysočiny v Jihlavě <a href="https://sbirky.ogv.cz/" target="_blank">svém webu</a> disponuje 100% online katalogem svých 6561 sbírkových předmětů.</p>
+        <p>Během posledního roku se také zvýšil počet institucí, které publikují své exponáty online o 33; mimo jiné o <a href="https://www.esbirky.cz/hledat/instituce/3782345?order=relevance" target="_blank">Městské muzeum v Železném brodě</a>, <a href="http://185.68.28.144/KATALOG/" target="_blank">Muzeum jižního Plzeňska v Boskovicích</a> nebo <a href="https://www.vhu.cz/exponaty-dne-archiv/" target="_blank">Vojenský historický ústav</a>. </p>
     </article>
     <div class="basicChart chart">
         <canvas id="euCzComparison">
@@ -224,18 +227,18 @@
             // define the chart data
             var chartData = {
                 labels :
-                ['2022','2021','2020'],
+                ['2023','2022','2021','2020'],
                 datasets :
                 [
                     {
                         label: 'Předměty přístupné online',
                         backgroundColor: '#949FFF',
-                        data :[{{onlineItems}},1248204,643894],
+                        data :[{{onlineItems}},1377522,1248204,643894],
                     },
                     {
                         label: 'Předměty NEpřístupné online',
                         backgroundColor: '#000000',
-                        data :[{{totalItems - onlineItems}},24127079,18025261],
+                        data :[{{totalItems - onlineItems}},25003371,24127079,18025261],
                     }
                 ]
             }
@@ -315,9 +318,10 @@
 
 <section class="storyChapter">
     <article class="chapterText">
-        <h2>64% muzeí zaznamenalo zlepšení podmínek pro digitalizaci sbírek</h2>
-        <p class="subtitle"><strong>47 ze 73 institucí</strong>, které nám vyplnily dotazník, považuje aktuální situaci ohledně digitalizace za <strong>lepší, než byla před začátkem pandemie</strong>. Naopak žádný posun během posledních dvou let nezaznamenalo 23 muzeí.</p>
-        <p>Mezi nejčastěji zmiňované pozitivní změny patří posun v prioritách u vedení nebo zřizovatele (26% institucí), větší povědomí o přínosech digitalizace (19%), lepší možnosti financování (21%) a kvalitnější zázemí v oblasti technologií a lidských zdrojů (19%).</p>
+        <h2>78% muzeí zaznamenalo zlepšení podmínek pro digitalizaci sbírek</h2>
+        <p class="subtitle"><strong>83 ze 106 institucí</strong>, které nám vyplnily dotazník, považuje aktuální situaci ohledně digitalizace za <strong>lepší, než byla před rokem</strong>. Naopak žádný posun během posledních dvou let nezaznamenalo 23 muzeí.</p>
+        <p>Mezi nejčastěji zmiňované pozitivní změny patří posun v prioritách u vedení nebo zřizovatele (70 institucí), lepší možnosti financování (60 institucí), kvalitnější zázemí v oblasti technologií a lidských zdrojů (33 institucí) a lepší povědomí o přínosech digitalizace (19 institucí).</p>
+        <p>Za největší problém instituce označily chybějící jednotnou metodiku Ministerstva kultury (9 institucí), nedostatek finančních a lidských kapacit (8 institucí), nedostatek podpory ze strany zřizvatele (7 institucí) a nedostatek vhodných platforem pro zveřejňování sbírkových předmětů online (8 institucí).</p>
     </article>
 
     <div class="extendedChart chart">
@@ -348,7 +352,7 @@
                         {
                             label: ' Podíl (%) muzeí v ČR, která vidí zlepšení v dané oblasti',
                             backgroundColor: '#000000',
-                            data: [31.5, 26.0, 21.9, 20.5, 19.2],
+                            data: [22, 66, 17.9, 56,6, 31,1],
                             maxBarThickness: 20,
                         }
                     ]
@@ -373,9 +377,9 @@
 
 <section class="storyChapter">
     <article class="chapterText">
-        <h2>Pouze 36% digitalizovaných děl je přístupných online</h2>
-        <p class="subtitle">Digitalizovné není totéž co přístupné. <strong>Digitalizováno je v ČR přibližně 14.5% z celkového počtu sbírkových předmětů</strong>. Online přístupných je však pouze 36% z nich.</p>
-        <p>Ne každé dílo, které prošlo digitalizací, je zveřejněno na internetu. Většina digitálních reprodukcí je pouze uložena na veřejnosti nedostupných serverech a slouží jen interním potřebám dané instituce.</p>
+        <h2>Pouze 49,5% digitalizovaných děl je přístupných online</h2>
+        <p class="subtitle">Digitalizované není totéž co přístupné. <strong>Dle výsledků průzkumu 2023 (u 1/4 institucí) je v ČR digitalizováno přibližně 15.6% z celkového počtu registrovaných sbírkových předmětů</strong>.</p>
+        <p>Online přístupných je pouze 49,5% z nich. Ne každé dílo, které prošlo digitalizací, je zveřejněno na internetu nebo jinde. Většina digitálních reprodukcí je pouze uložena na veřejnosti nedostupných serverech a slouží jen interním potřebám dané instituce.</p>
     </article>
     <div class="basicChart chart">
         <canvas id="czDigiVsOnline" style="display: block;">
@@ -384,13 +388,13 @@
             // define the chart data
             var chartData = {
                 labels:
-                    ['Online přístupná díla (%)', 'Digitalizovaná neveřejná díla (%)', 'Nedigitalizovaná díla (%)'],
+                    ['Online přístupná díla (%)', 'Digitalizovaná nepřístupná díla (%)', 'Nedigitalizovaná díla (%)'],
                 datasets:
                     [
                         {
-                            label: ' Podíl (%) evropských muzeí využívající daný online kanál ke zpřístupňování sbírek',
+                            label: 'Podíl (%) stavu sbírkových předmětů k 2023 dle výsledků průzkumu od 1/4 institucí',
                             backgroundColor: ['#949FFF', '#3E4FED', '#000000'],
-                            data: [5.3, 9.2, 85.5],
+                            data: [7.7, 15.6, 76.7],
                             maxBarThickness: 20,
                         }
                     ]
@@ -506,8 +510,7 @@
         <p><a href="{{ url_for('downloaddata') }}">Stáhnout data ve formátu .csv</a><br>Dataset obsahuje seznam všech institucí, jejichž sbírky jsou registrovány v Centrální evidenci sbírek MK ČR. U každé instituce je k dispozici odkaz na online katalog, údaje o celkové velikosti sbírek, počet online přístupných artefaktů a počet artefaktů zpřístupněných pod otevřenou licencí. Data jsou rozdělena dle jednotlivých let. </p>
         <!--<p><a href="/static/downloads/TZ-otevrene-sbirky.pdf">Stáhnout tiskovou zprávu</a></p>-->
         <br><br>
-        <p>Průzkum vznikl se záštitou Centra doktorských studií UMPRUM, rektora Vysoké školy uměleckoprůmyslové v Praze a Wikimedia Česká republika. Za mediální podporu děkujeme Art+Antiques a Artalk.cz.</p>
-        <p><a href="http://lukaspilka.cz/" target="_blank">Lukáš Pilka</a> a <a href="mailto: tereza.skvarova@gmail.com">Tereza Škvárová</a>, Eva Vele a Vojtěch Dostál, {{currentYear}}</p>
+        <p> Zakladatelé projektu: Lukáš Pilka a Tereza Škvárová <br> Koordinátoři projektu 2023: Eva Vele a <a href="mailto: milan.holecek@wikimedia.cz">Milan Holeček</a>, {{currentYear}}</p>
     </article>
 </footer>
 
