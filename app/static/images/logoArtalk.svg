@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="752.38666"
+   height="208.26666"
+   viewBox="0 0 752.38666 208.26666"
+   sodipodi:docname="ARTALK_TEXTLOGO_DEF.eps"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="ink_ext_XXXXXX"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,208.26667)">
+    <g
+       id="g10"
+       transform="scale(0.1)">
+      <path
+         d="m 800.809,528 c 0,160.605 -129.801,290.406 -286.004,290.406 -156.2,0 -286,-132 -286,-290.406 0,-156.199 129.8,-290.398 286,-290.398 156.203,0 286.004,134.199 286.004,290.398 z M 512.605,22 C 228.805,22 0,250.801 0,528 0,805.203 228.805,1034.01 512.605,1034.01 H 1014.21 V 22 H 512.605"
+         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path12" />
+      <path
+         d="m 1520.2,22 h -220 v 1012.01 h 638 V 827.203 h -418 V 22"
+         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path14" />
+      <path
+         d="m 2580.6,22 h -220 V 827.203 H 2012.99 V 1034.01 H 2360.6 V 1408 h 220 V 1034.01 H 2926 V 827.203 H 2580.6 V 22"
+         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path16" />
+      <path
+         d="m 3836.78,528 c 0,160.605 -129.8,290.406 -286,290.406 -156.2,0 -286,-132 -286,-290.406 0,-156.199 129.8,-290.398 286,-290.398 156.2,0 286,134.199 286,290.398 z M 3548.59,22 c -283.81,0 -512.61,228.801 -512.61,506 0,277.203 228.8,506.01 512.61,506.01 h 501.6 V 22 h -501.6"
+         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path18" />
+      <path
+         d="m 4562.77,22 h -226.61 v 1540.01 h 226.61 V 22"
+         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path20" />
+      <path
+         d="M 5068.73,750.207 5642.94,1056 V 820.602 L 5092.93,532.398 5642.94,242 V 0 L 5068.73,310.211 V 22 h -220 v 1540.01 h 220 V 750.207"
+         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path22" />
+    </g>
+  </g>
+</svg>
