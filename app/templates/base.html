@@ -53,7 +53,7 @@
       const collectionData = {{ collectionDataJson|tojson }};
     </script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}?v=12" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0"></script>
 
 </head>
 <body>
@@ -166,19 +166,19 @@
         <canvas id="euCollectionsUse" style="display: block;">
         <script>
             // Global parameters for all charts:
-            Chart.defaults.global.responsive = false;
-            Chart.defaults.global.defaultFontColor = '#000000';
-            Chart.defaults.global.defaultFontSize = 16;
-            Chart.defaults.global.defaultFontFamily = "'Montserrat', sans-serif";
-            Chart.defaults.global.tooltips.backgroundColor = "#000000";
-            Chart.defaults.global.tooltips.titleFontSize = 16;
-            Chart.defaults.global.tooltips.bodyFontSize = 16;
-            Chart.defaults.global.tooltips.cornerRadius = 0;
-            Chart.defaults.global.tooltips.xPadding = 20;
-            Chart.defaults.global.tooltips.yPadding = 20;
-            Chart.defaults.global.tooltips.borderColor = '#ffffff';
-            Chart.defaults.global.tooltips.borderWidth = 1;
-            Chart.defaults.global.layout.padding = 30;
+            console.log( Chart.defaults );
+            Chart.defaults.responsive = false;
+            Chart.defaults.defaultFontColor = '#000000';
+            Chart.defaults.defaultFontSize = 16;
+            Chart.defaults.defaultFontFamily = "'Montserrat', sans-serif";
+            Chart.defaults.tooltips.backgroundColor = "#000000";
+            Chart.defaults.tooltips.titleFontSize = 16;
+            Chart.defaults.tooltips.bodyFontSize = 16;
+            Chart.defaults.tooltips.cornerRadius = 0;
+            // Chart.defaults.tooltips.xPadding = 20;
+            // Chart.defaults.tooltips.yPadding = 20;
+            Chart.defaults.tooltips.borderColor = '#ffffff';
+            Chart.defaults.tooltips.borderWidth = 1;
             Chart.defaults.scale.gridLines.color = '#000000';
             Chart.defaults.scale.ticks.beginAtZero = true;
 
@@ -332,19 +332,18 @@
         <canvas id="czObstacles" style="display: block;">
         <script>
             // Global parameters for all charts:
-            Chart.defaults.global.responsive = false;
-            Chart.defaults.global.defaultFontColor = '#000000';
-            Chart.defaults.global.defaultFontSize = 16;
-            Chart.defaults.global.defaultFontFamily = "'Montserrat', sans-serif";
-            Chart.defaults.global.tooltips.backgroundColor = "#000000";
-            Chart.defaults.global.tooltips.titleFontSize = 16;
-            Chart.defaults.global.tooltips.bodyFontSize = 16;
-            Chart.defaults.global.tooltips.cornerRadius = 0;
-            Chart.defaults.global.tooltips.xPadding = 20;
-            Chart.defaults.global.tooltips.yPadding = 20;
-            Chart.defaults.global.tooltips.borderColor = '#ffffff';
-            Chart.defaults.global.tooltips.borderWidth = 1;
-            Chart.defaults.global.layout.padding = 30;
+            Chart.defaults.responsive = false;
+            Chart.defaults.defaultFontColor = '#000000';
+            Chart.defaults.defaultFontSize = 16;
+            Chart.defaults.defaultFontFamily = "'Montserrat', sans-serif";
+            Chart.defaults.tooltips.backgroundColor = "#000000";
+            Chart.defaults.tooltips.titleFontSize = 16;
+            Chart.defaults.tooltips.bodyFontSize = 16;
+            Chart.defaults.tooltips.cornerRadius = 0;
+            // Chart.defaults.tooltips.xPadding = 20;
+            // Chart.defaults.tooltips.yPadding = 20;
+            Chart.defaults.tooltips.borderColor = '#ffffff';
+            Chart.defaults.tooltips.borderWidth = 1;
             Chart.defaults.scale.gridLines.color = '#000000';
             Chart.defaults.scale.ticks.beginAtZero = true;
 
