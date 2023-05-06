@@ -1,3 +1,11 @@
+# Flask-specific config
+CACHE_TYPE: MemcachedCache
+CACHE_DEFAULT_TIMEOUT: 300
+CACHE_KEY_PREFIX: wmcz-otevrenesbirky
+CACHE_MEMCACHED_SERVERS:
+  - 127.0.0.1
+
+# app-specific config
 currentYear: 2023
 
 # Hodnoty musí odpovídat názvů sloupečků v Google Sheetu s daty o sbírkách
