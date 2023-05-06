@@ -207,12 +207,12 @@
                 options: {
                     aspectRatio: 1,
                     scales: {
-                        xAxes: [{
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
                             stacked: true
-                        }],
-                        yAxes: [{
-                            stacked: true
-                        }]
+                        }
                     },
                     layout: {
                         padding: 40
@@ -284,10 +284,10 @@
         <canvas id="czObstacles" style="display: block;">
         <script>
             // Global parameters for all charts:
-            Chart.defaults.responsive = false;
-            Chart.defaults.defaultFontColor = '#000000';
-            Chart.defaults.defaultFontSize = 16;
-            Chart.defaults.defaultFontFamily = "'Montserrat', sans-serif";
+            // Chart.defaults.responsive = false;
+            // Chart.defaults.defaultFontColor = '#000000';
+            // Chart.defaults.defaultFontSize = 16;
+            // Chart.defaults.defaultFontFamily = "'Montserrat', sans-serif";
             // Chart.defaults.tooltips.backgroundColor = "#000000";
             // Chart.defaults.tooltips.titleFontSize = 16;
             // Chart.defaults.tooltips.bodyFontSize = 16;
@@ -297,7 +297,7 @@
             // Chart.defaults.tooltips.borderColor = '#ffffff';
             // Chart.defaults.tooltips.borderWidth = 1;
             // Chart.defaults.scale.gridLines.color = '#000000';
-            Chart.defaults.scale.ticks.beginAtZero = true;
+            // Chart.defaults.scale.ticks.beginAtZero = true;
 
             // define the chart data
             var chartData = {
@@ -320,8 +320,11 @@
             // create the chart using the chart canvas
 
             var allCzCollections = new Chart(ctx, {
-                type: 'horizontalBar',
+                type: 'bar',
                 data: chartData,
+                options: {
+                    indexAxis: 'y',
+                }
             });
         </script>
     </canvas>
