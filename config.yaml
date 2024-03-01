@@ -6,7 +6,7 @@ CACHE_MEMCACHED_SERVERS:
   - 127.0.0.1
 
 # app-specific config
-currentYear: 2023
+currentYear: 2024
 
 # Hodnoty musí odpovídat názvů sloupečků v Google Sheetu s daty o sbírkách
 currentYearTotalKey: Total 2024
