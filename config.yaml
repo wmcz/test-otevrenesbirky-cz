@@ -1,7 +1,7 @@
 # Flask-specific config
 CACHE_TYPE: MemcachedCache
 CACHE_DEFAULT_TIMEOUT: 300
-CACHE_KEY_PREFIX: wmcz-otevrenesbirky
+CACHE_KEY_PREFIX: wmcz-test-otevrenesbirky
 CACHE_MEMCACHED_SERVERS:
   - 127.0.0.1
 
@@ -13,4 +13,4 @@ currentYearTotalKey: Total 2023
 currentYearOnlineKey: Online 2023
 currentYearOpenKey: Open 2023
 
-gsheetUrl: https://docs.google.com/spreadsheets/d/1YYT9T9f2ybxyIMM97tesrVLeE9r6JUnObVzvbHuWo3k
+gsheetUrl: https://docs.google.com/spreadsheets/d/1vOeKKAA0y43lL_NE-UVV66IDyjAUGkxsQiHikBn6CwU
