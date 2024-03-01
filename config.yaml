@@ -9,8 +9,8 @@ CACHE_MEMCACHED_SERVERS:
 currentYear: 2023
 
 # Hodnoty musí odpovídat názvů sloupečků v Google Sheetu s daty o sbírkách
-currentYearTotalKey: Total 2023
-currentYearOnlineKey: Online 2023
-currentYearOpenKey: Open 2023
+currentYearTotalKey: Total 2024
+currentYearOnlineKey: Online 2024
+currentYearOpenKey: Open 2024
 
 gsheetUrl: https://docs.google.com/spreadsheets/d/1vOeKKAA0y43lL_NE-UVV66IDyjAUGkxsQiHikBn6CwU
