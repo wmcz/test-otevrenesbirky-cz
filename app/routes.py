@@ -12,6 +12,8 @@ def index():
     totalItems = 0
     onlineItems = 0
     for museum in collectionDataJson:
+        if app.config['currentYearTotalKey'] not in museum:
+            continue
         if museum[app.config['currentYearTotalKey']] > 0:
             museumsCount += 1
         totalItems += museum[app.config['currentYearTotalKey']]
