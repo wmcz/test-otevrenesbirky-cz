@@ -1,5 +1,6 @@
 # Flask-specific config
-CACHE_TYPE: MemcachedCache
+#CACHE_TYPE: MemcachedCache
+CACHE_TYPE: NullCache
 CACHE_DEFAULT_TIMEOUT: 300
 CACHE_KEY_PREFIX: wmcz-test-otevrenesbirky
 CACHE_MEMCACHED_SERVERS:
