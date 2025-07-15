@@ -7,11 +7,11 @@ CACHE_MEMCACHED_SERVERS:
   - 127.0.0.1
 
 # app-specific config
-currentYear: 2024
+currentYear: 2025
 
 # Hodnoty musí odpovídat názvů sloupečků v Google Sheetu s daty o sbírkách
-currentYearTotalKey: Total 2024
-currentYearOnlineKey: Online 2024
-currentYearOpenKey: Open 2024
+currentYearTotalKey: Total 2025
+currentYearOnlineKey: Online 2025
+currentYearOpenKey: Open 2025
 
-gsheetUrl: https://docs.google.com/spreadsheets/d/1vOeKKAA0y43lL_NE-UVV66IDyjAUGkxsQiHikBn6CwU
+gsheetUrl: https://docs.google.com/spreadsheets/d/14NmOXU6tutbKfaxRtjUYH94aFQgcpBpy11wL8RvFBF8
