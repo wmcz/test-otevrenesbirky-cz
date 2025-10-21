@@ -1,16 +1,17 @@
 # Flask-specific config
-CACHE_TYPE: MemcachedCache
+#CACHE_TYPE: MemcachedCache
+CACHE_TYPE: NullCache
 CACHE_DEFAULT_TIMEOUT: 300
-CACHE_KEY_PREFIX: wmcz-otevrenesbirky
+CACHE_KEY_PREFIX: wmcz-test-otevrenesbirky
 CACHE_MEMCACHED_SERVERS:
   - 127.0.0.1
 
 # app-specific config
-currentYear: 2023
+currentYear: 2025
 
 # Hodnoty musí odpovídat názvů sloupečků v Google Sheetu s daty o sbírkách
-currentYearTotalKey: Total 2023
-currentYearOnlineKey: Online 2023
-currentYearOpenKey: Open 2023
+currentYearTotalKey: Total 2025
+currentYearOnlineKey: Online 2025
+currentYearOpenKey: Open 2025
 
-gsheetUrl: https://docs.google.com/spreadsheets/d/1YYT9T9f2ybxyIMM97tesrVLeE9r6JUnObVzvbHuWo3k
+gsheetUrl: https://docs.google.com/spreadsheets/d/14NmOXU6tutbKfaxRtjUYH94aFQgcpBpy11wL8RvFBF8
