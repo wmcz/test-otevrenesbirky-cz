@@ -1,10 +1,8 @@
 # Flask-specific config
-#CACHE_TYPE: MemcachedCache
+# Caching is off by default. To turn it on, link one of the
+# config.local.*.yaml files as config.local.yaml.
 CACHE_TYPE: NullCache
 CACHE_DEFAULT_TIMEOUT: 300
-CACHE_KEY_PREFIX: wmcz-test-otevrenesbirky
-CACHE_MEMCACHED_SERVERS:
-  - 127.0.0.1
 
 # app-specific config
 currentYear: 2025

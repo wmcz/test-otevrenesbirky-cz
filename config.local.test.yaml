@@ -1,0 +1,6 @@
+# Local config for test.otevrenesbirky.cz
+# On the test server: ln -s config.local.test.yaml config.local.yaml
+CACHE_TYPE: MemcachedCache
+CACHE_KEY_PREFIX: wmcz-test-otevrenesbirky
+CACHE_MEMCACHED_SERVERS:
+  - 127.0.0.1

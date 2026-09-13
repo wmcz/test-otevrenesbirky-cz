@@ -7,3 +7,4 @@ gcpKey.json
 openCollections.csv
 scrapper/csvExport/*
 reload
+config.local.yaml

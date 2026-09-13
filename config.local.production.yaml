@@ -1,0 +1,6 @@
+# Local config for otevrenesbirky.cz
+# On the production server: ln -s config.local.production.yaml config.local.yaml
+CACHE_TYPE: MemcachedCache
+CACHE_KEY_PREFIX: wmcz-otevrenesbirky
+CACHE_MEMCACHED_SERVERS:
+  - 127.0.0.1

@@ -5,6 +5,17 @@ Aplikace má 2 funkce:
 1. Stahuje data z centrální evidence sbírek muzejní povahy
 2. Vytváří prezentaci dostupnou na https://www.otevrenesbirky.cz/
 
+## Konfigurace
+
+Výchozí nastavení je v souboru **config.yaml**. Nastavení specifické pro daný server (např. cache) patří do souboru **config.local.yaml**, který se neverzuje a má přednost před výchozím nastavením.
+
+- Testovací server: `ln -s config.local.test.yaml config.local.yaml`
+- Produkční server: `ln -s config.local.production.yaml config.local.yaml`
+
+Symbolický odkaz je lepší než kopie: změny v šabloně se na server dostanou automaticky s `git pull`.
+
+Bez souboru config.local.yaml aplikace neukládá nic do cache.
+
 ## Jak přidat data za nový rok
 
 1. [Stáhněte aktuáldní data z CES online](#Stažení-dat-z-CES-online)
